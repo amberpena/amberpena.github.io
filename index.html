@@ -6,7 +6,24 @@
 
     <title>Amber Peña | Business Technology Solutions</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            --background: #fbf9fc;
+            --surface: #ffffff;
+            --surface-soft: #f3eef8;
+            --lavender: #8d79b8;
+            --lavender-dark: #66558f;
+            --lavender-light: #ddd2eb;
+            --text-dark: #25222a;
+            --text-soft: #68636f;
+            --border: rgba(102, 85, 143, 0.16);
+            --shadow: 0 24px 60px rgba(72, 56, 98, 0.10);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -18,9 +35,9 @@
         }
 
         body {
-            background: #f7f4ed;
-            color: #262626;
-            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text-dark);
+            font-family: "Manrope", sans-serif;
             line-height: 1.6;
         }
 
@@ -35,135 +52,153 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 22px 8%;
-            background: rgba(247, 244, 237, 0.96);
-            border-bottom: 1px solid rgba(31, 64, 50, 0.12);
+            padding: 24px 8%;
+            background: rgba(251, 249, 252, 0.92);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(14px);
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #1f4032;
+            color: var(--lavender-dark);
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         nav ul {
             display: flex;
-            gap: 28px;
+            gap: 34px;
             list-style: none;
         }
 
         nav a {
             text-decoration: none;
-            font-size: 15px;
-            font-weight: 600;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.2s ease;
         }
 
         nav a:hover {
-            color: #3f805e;
+            color: var(--lavender-dark);
         }
 
         .hero {
             min-height: 88vh;
             display: flex;
             align-items: center;
-            padding: 80px 8%;
+            padding: 120px 8% 100px;
         }
 
         .hero-content {
-            max-width: 950px;
+            max-width: 920px;
         }
 
         .eyebrow {
-            margin-bottom: 18px;
-            color: #3f805e;
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 2px;
+            margin-bottom: 22px;
+            color: var(--lavender-dark);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 2.5px;
             text-transform: uppercase;
         }
 
         .hero h1 {
-            max-width: 900px;
-            color: #1f4032;
-            font-size: clamp(52px, 8vw, 92px);
+            max-width: 860px;
+            color: var(--text-dark);
+            font-size: clamp(56px, 7vw, 94px);
             line-height: 1.02;
-            letter-spacing: -3px;
+            letter-spacing: -4px;
+        }
+
+        .hero h1 span {
+            color: var(--lavender-dark);
         }
 
         .hero-description {
-            max-width: 760px;
-            margin-top: 28px;
-            color: #535353;
-            font-size: 21px;
+            max-width: 720px;
+            margin-top: 30px;
+            color: var(--text-soft);
+            font-size: 20px;
+            line-height: 1.8;
         }
 
         .specialties {
             margin-top: 22px;
-            color: #1f4032;
-            font-size: 16px;
-            font-weight: 700;
+            color: var(--lavender-dark);
+            font-size: 15px;
+            font-weight: 800;
         }
 
         .buttons {
             display: flex;
             flex-wrap: wrap;
             gap: 14px;
-            margin-top: 36px;
+            margin-top: 38px;
         }
 
         .btn {
             display: inline-block;
-            padding: 14px 24px;
-            border-radius: 8px;
+            padding: 15px 24px;
+            border-radius: 999px;
             text-decoration: none;
-            font-weight: 700;
+            font-size: 14px;
+            font-weight: 800;
             transition: 0.25s ease;
         }
 
         .btn-primary {
-            background: #1f4032;
+            background: var(--lavender-dark);
             color: #ffffff;
+            box-shadow: 0 14px 30px rgba(102, 85, 143, 0.24);
         }
 
         .btn-secondary {
-            border: 2px solid #1f4032;
-            color: #1f4032;
+            border: 1.5px solid var(--lavender-dark);
+            color: var(--lavender-dark);
+            background: transparent;
         }
 
         .btn:hover {
             transform: translateY(-3px);
         }
 
+        .hero-note {
+            margin-top: 56px;
+            color: var(--text-soft);
+            font-size: 14px;
+        }
+
         section {
-            padding: 100px 8%;
+            padding: 110px 8%;
         }
 
         .section-label {
             margin-bottom: 12px;
-            color: #3f805e;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 2px;
+            color: var(--lavender-dark);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2.4px;
             text-transform: uppercase;
         }
 
         .section-title {
-            max-width: 800px;
-            margin-bottom: 18px;
-            color: #1f4032;
-            font-size: clamp(36px, 5vw, 58px);
-            line-height: 1.1;
+            max-width: 760px;
+            margin-bottom: 20px;
+            font-size: clamp(38px, 5vw, 62px);
+            line-height: 1.08;
+            letter-spacing: -2.5px;
         }
 
         .section-intro {
             max-width: 720px;
-            margin-bottom: 48px;
-            color: #5d5d5d;
+            margin-bottom: 50px;
+            color: var(--text-soft);
             font-size: 18px;
+            line-height: 1.8;
         }
 
         .work-section {
-            background: #ffffff;
+            background: var(--surface);
         }
 
         .project-grid {
@@ -173,109 +208,137 @@
         }
 
         .project-card {
-            min-height: 380px;
+            min-height: 420px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             padding: 34px;
-            background: #f7f4ed;
-            border: 1px solid rgba(31, 64, 50, 0.12);
-            border-radius: 18px;
-            transition: 0.25s ease;
+            background: var(--surface-soft);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            transition: 0.3s ease;
+        }
+
+        .project-card:nth-child(2) {
+            background: #f8f5fb;
+        }
+
+        .project-card:nth-child(3) {
+            background: #eee7f5;
         }
 
         .project-card:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 18px 40px rgba(31, 64, 50, 0.12);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
         }
 
         .project-number {
-            color: #3f805e;
-            font-size: 14px;
-            font-weight: 700;
+            color: var(--lavender-dark);
+            font-size: 13px;
+            font-weight: 800;
         }
 
         .project-card h3 {
-            margin-top: 30px;
-            color: #1f4032;
-            font-size: 28px;
+            margin-top: 34px;
+            color: var(--text-dark);
+            font-size: 30px;
             line-height: 1.2;
+            letter-spacing: -1px;
         }
 
         .project-card p {
-            margin-top: 16px;
-            color: #626262;
+            margin-top: 18px;
+            color: var(--text-soft);
         }
 
         .project-tags {
-            margin-top: 28px;
-            color: #1f4032;
-            font-size: 14px;
-            font-weight: 700;
+            color: var(--lavender-dark) !important;
+            font-size: 13px;
+            font-weight: 800;
+            line-height: 1.8;
         }
 
         .project-link {
             display: inline-block;
-            margin-top: 26px;
-            color: #1f4032;
+            margin-top: 30px;
+            color: var(--lavender-dark);
             text-decoration: none;
-            font-weight: 700;
+            font-size: 14px;
+            font-weight: 800;
         }
 
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 70px;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 72px;
             align-items: center;
         }
 
-        .about-card {
-            min-height: 420px;
+        .about-visual {
+            min-height: 480px;
             display: flex;
             align-items: flex-end;
-            padding: 35px;
-            background: #1f4032;
-            border-radius: 22px;
-            color: #ffffff;
+            padding: 40px;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(141, 121, 184, 0.94),
+                    rgba(102, 85, 143, 0.98)
+                );
+            border-radius: 28px;
+            box-shadow: var(--shadow);
         }
 
-        .about-card p {
-            font-size: 28px;
-            font-weight: 700;
+        .about-visual p {
+            max-width: 430px;
+            color: #ffffff;
+            font-size: 32px;
+            font-weight: 800;
             line-height: 1.3;
+            letter-spacing: -1px;
         }
 
         .about-text p {
             margin-bottom: 18px;
-            color: #575757;
+            color: var(--text-soft);
             font-size: 18px;
+            line-height: 1.8;
         }
 
         .skills-section {
-            background: #e9eee7;
+            background: #f1edf5;
         }
 
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
+            gap: 22px;
         }
 
         .skill-group {
-            padding: 28px;
-            background: #ffffff;
-            border-radius: 16px;
+            padding: 30px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
         }
 
         .skill-group h3 {
             margin-bottom: 18px;
-            color: #1f4032;
-            font-size: 21px;
+            color: var(--lavender-dark);
+            font-size: 20px;
         }
 
         .skill-group p {
-            color: #636363;
+            color: var(--text-soft);
             line-height: 2;
+        }
+
+        .resume-card {
+            padding: 48px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 26px;
+            box-shadow: var(--shadow);
         }
 
         .contact-section {
@@ -292,25 +355,25 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 30px 8%;
-            background: #1f4032;
+            padding: 34px 8%;
+            background: var(--text-dark);
             color: #ffffff;
         }
 
         footer a {
-            margin-left: 18px;
+            margin-left: 20px;
             text-decoration: none;
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 950px) {
             nav ul {
                 display: none;
             }
 
             .hero {
                 min-height: auto;
-                padding-top: 120px;
-                padding-bottom: 120px;
+                padding-top: 110px;
+                padding-bottom: 100px;
             }
 
             .hero h1 {
@@ -318,18 +381,54 @@
             }
 
             .project-grid,
-            .skills-grid {
+            .skills-grid,
+            .about-grid {
                 grid-template-columns: 1fr;
             }
 
-            .about-grid {
-                grid-template-columns: 1fr;
+            .project-card {
+                min-height: 350px;
+            }
+
+            .about-visual {
+                min-height: 380px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav,
+            .hero,
+            section,
+            footer {
+                padding-left: 6%;
+                padding-right: 6%;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero-description {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 40px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                align-items: flex-start;
             }
 
             footer {
                 flex-direction: column;
                 gap: 18px;
                 text-align: center;
+            }
+
+            footer a {
+                margin: 0 8px;
             }
         }
     </style>
@@ -359,14 +458,15 @@
                 </p>
 
                 <h1>
-                    Building technology that solves real business problems.
+                    Building technology that solves
+                    <span>real business problems.</span>
                 </h1>
 
                 <p class="hero-description">
-                    I combine technology, data, business analysis, automation,
-                    and thoughtful product design to create practical solutions
-                    that improve workflows, support smarter decisions, and
-                    create meaningful user experiences.
+                    I design technology solutions that connect business goals
+                    with data, automation, and user-centered experiences.
+                    My work focuses on transforming complex challenges into
+                    practical solutions that create measurable business value.
                 </p>
 
                 <p class="specialties">
@@ -375,13 +475,17 @@
 
                 <div class="buttons">
                     <a class="btn btn-primary" href="#work">
-                        View My Work
+                        Explore My Work
                     </a>
 
                     <a class="btn btn-secondary" href="#resume">
-                        View Resume
+                        Resume
                     </a>
                 </div>
+
+                <p class="hero-note">
+                    Computer Science student • Management Information Systems minor • Houston, Texas
+                </p>
 
             </div>
         </section>
@@ -391,7 +495,7 @@
             <p class="section-label">Selected Work</p>
 
             <h2 class="section-title">
-                Solutions designed around real business needs.
+                Thoughtful solutions built around real business needs.
             </h2>
 
             <p class="section-intro">
@@ -408,9 +512,9 @@
                         <h3>Natural Gas Market Intelligence</h3>
 
                         <p>
-                            A planned analytics dashboard for monitoring natural gas
-                            supply, demand, storage, weather, and pricing information
-                            in one clear experience.
+                            A planned analytics experience designed to help users
+                            monitor natural gas supply, demand, storage, weather,
+                            and pricing information in one clear dashboard.
                         </p>
 
                         <p class="project-tags">
@@ -431,12 +535,12 @@
 
                         <p>
                             A product and UX case study focused on improving how
-                            customers explore wellness products and complete their
-                            ordering experience.
+                            customers discover wellness products and complete
+                            their ordering journey.
                         </p>
 
                         <p class="project-tags">
-                            Product Strategy • UX • Figma • Business
+                            Product Strategy • UX • Figma • Business Analysis
                         </p>
                     </div>
 
@@ -452,9 +556,9 @@
                         <h3>AI Workflow Assistant</h3>
 
                         <p>
-                            A planned AI and automation solution designed to reduce
-                            repetitive work, organize information, and support faster
-                            business decisions.
+                            A planned AI solution designed to reduce repetitive
+                            business tasks, organize information, and support
+                            faster decision-making.
                         </p>
 
                         <p class="project-tags">
@@ -474,9 +578,9 @@
 
             <div class="about-grid">
 
-                <div class="about-card">
+                <div class="about-visual">
                     <p>
-                        Technology should not only work. It should make work better.
+                        Technology is most powerful when it helps people make better decisions.
                     </p>
                 </div>
 
@@ -575,20 +679,24 @@
 
         <section id="resume">
 
-            <p class="section-label">Resume</p>
+            <div class="resume-card">
 
-            <h2 class="section-title">
-                Experience across energy operations, enterprise systems, and entrepreneurship.
-            </h2>
+                <p class="section-label">Resume</p>
 
-            <p class="section-intro">
-                My resume will be added here as a downloadable PDF once the final
-                recruiter-ready version is complete.
-            </p>
+                <h2 class="section-title">
+                    Experience across energy operations, enterprise systems, and entrepreneurship.
+                </h2>
 
-            <a class="btn btn-primary" href="#">
-                Resume coming soon
-            </a>
+                <p class="section-intro">
+                    My downloadable resume will be added here once the final
+                    recruiter-ready version is complete.
+                </p>
+
+                <a class="btn btn-primary" href="#">
+                    Resume coming soon
+                </a>
+
+            </div>
 
         </section>
 
