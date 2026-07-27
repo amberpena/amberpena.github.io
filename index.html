@@ -3,175 +3,636 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Amber Peña | Business Technology Solutions</title>
 
     <style>
-
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:Arial, Helvetica, sans-serif;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        body{
-            background:#F7F4ED;
-            color:#262626;
+        html {
+            scroll-behavior: smooth;
         }
 
-        nav{
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            padding:25px 10%;
-            background:white;
-            box-shadow:0 2px 10px rgba(0,0,0,.05);
+        body {
+            background: #f7f4ed;
+            color: #262626;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
         }
 
-        .logo{
-            font-size:28px;
-            font-weight:bold;
-            color:#1F4032;
+        a {
+            color: inherit;
         }
 
-        nav ul{
-            display:flex;
-            list-style:none;
-            gap:30px;
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            background: rgba(247, 244, 237, 0.96);
+            border-bottom: 1px solid rgba(31, 64, 50, 0.12);
         }
 
-        nav a{
-            text-decoration:none;
-            color:#262626;
-            font-weight:600;
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1f4032;
         }
 
-        .hero{
-
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            height:85vh;
-            text-align:center;
-            padding:40px;
-
+        nav ul {
+            display: flex;
+            gap: 28px;
+            list-style: none;
         }
 
-        h1{
-
-            font-size:64px;
-            color:#1F4032;
-            margin-bottom:20px;
-
+        nav a {
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
         }
 
-        h2{
-
-            font-size:28px;
-            color:#666;
-            margin-bottom:30px;
-
+        nav a:hover {
+            color: #3f805e;
         }
 
-        p{
-
-            max-width:750px;
-            margin:auto;
-            line-height:1.8;
-            font-size:20px;
-
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            padding: 80px 8%;
         }
 
-        .buttons{
-
-            margin-top:40px;
-
+        .hero-content {
+            max-width: 950px;
         }
 
-        .btn{
-
-            display:inline-block;
-            padding:15px 30px;
-            margin:10px;
-            border-radius:8px;
-            text-decoration:none;
-            font-weight:bold;
-            transition:.3s;
-
+        .eyebrow {
+            margin-bottom: 18px;
+            color: #3f805e;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        .primary{
-
-            background:#1F4032;
-            color:white;
-
+        .hero h1 {
+            max-width: 900px;
+            color: #1f4032;
+            font-size: clamp(52px, 8vw, 92px);
+            line-height: 1.02;
+            letter-spacing: -3px;
         }
 
-        .secondary{
-
-            border:2px solid #1F4032;
-            color:#1F4032;
-
+        .hero-description {
+            max-width: 760px;
+            margin-top: 28px;
+            color: #535353;
+            font-size: 21px;
         }
 
-        .btn:hover{
-
-            transform:translateY(-3px);
-
+        .specialties {
+            margin-top: 22px;
+            color: #1f4032;
+            font-size: 16px;
+            font-weight: 700;
         }
 
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 36px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.25s ease;
+        }
+
+        .btn-primary {
+            background: #1f4032;
+            color: #ffffff;
+        }
+
+        .btn-secondary {
+            border: 2px solid #1f4032;
+            color: #1f4032;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-label {
+            margin-bottom: 12px;
+            color: #3f805e;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            max-width: 800px;
+            margin-bottom: 18px;
+            color: #1f4032;
+            font-size: clamp(36px, 5vw, 58px);
+            line-height: 1.1;
+        }
+
+        .section-intro {
+            max-width: 720px;
+            margin-bottom: 48px;
+            color: #5d5d5d;
+            font-size: 18px;
+        }
+
+        .work-section {
+            background: #ffffff;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .project-card {
+            min-height: 380px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 34px;
+            background: #f7f4ed;
+            border: 1px solid rgba(31, 64, 50, 0.12);
+            border-radius: 18px;
+            transition: 0.25s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 18px 40px rgba(31, 64, 50, 0.12);
+        }
+
+        .project-number {
+            color: #3f805e;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .project-card h3 {
+            margin-top: 30px;
+            color: #1f4032;
+            font-size: 28px;
+            line-height: 1.2;
+        }
+
+        .project-card p {
+            margin-top: 16px;
+            color: #626262;
+        }
+
+        .project-tags {
+            margin-top: 28px;
+            color: #1f4032;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 26px;
+            color: #1f4032;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-card {
+            min-height: 420px;
+            display: flex;
+            align-items: flex-end;
+            padding: 35px;
+            background: #1f4032;
+            border-radius: 22px;
+            color: #ffffff;
+        }
+
+        .about-card p {
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .about-text p {
+            margin-bottom: 18px;
+            color: #575757;
+            font-size: 18px;
+        }
+
+        .skills-section {
+            background: #e9eee7;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .skill-group {
+            padding: 28px;
+            background: #ffffff;
+            border-radius: 16px;
+        }
+
+        .skill-group h3 {
+            margin-bottom: 18px;
+            color: #1f4032;
+            font-size: 21px;
+        }
+
+        .skill-group p {
+            color: #636363;
+            line-height: 2;
+        }
+
+        .contact-section {
+            text-align: center;
+        }
+
+        .contact-section .section-title,
+        .contact-section .section-intro {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 8%;
+            background: #1f4032;
+            color: #ffffff;
+        }
+
+        footer a {
+            margin-left: 18px;
+            text-decoration: none;
+        }
+
+        @media (max-width: 900px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-top: 120px;
+                padding-bottom: 120px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .project-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 18px;
+                text-align: center;
+            }
+        }
     </style>
-
 </head>
 
 <body>
 
-<nav>
+    <nav>
+        <div class="logo">Amber Peña</div>
 
-<div class="logo">
+        <ul>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-Amber Peña
+    <main>
 
-</div>
+        <section class="hero">
+            <div class="hero-content">
 
-<ul>
+                <p class="eyebrow">
+                    Business Technology Solutions
+                </p>
 
-<li><a href="#">About</a></li>
-<li><a href="#">Projects</a></li>
-<li><a href="#">Skills</a></li>
-<li><a href="#">Resume</a></li>
-<li><a href="#">Contact</a></li>
+                <h1>
+                    Building technology that solves real business problems.
+                </h1>
 
-</ul>
+                <p class="hero-description">
+                    I combine technology, data, business analysis, automation,
+                    and thoughtful product design to create practical solutions
+                    that improve workflows, support smarter decisions, and
+                    create meaningful user experiences.
+                </p>
 
-</nav>
+                <p class="specialties">
+                    Business Analysis • Data Analytics • AI Automation • Product Strategy
+                </p>
 
-<section class="hero">
+                <div class="buttons">
+                    <a class="btn btn-primary" href="#work">
+                        View My Work
+                    </a>
 
-<div>
+                    <a class="btn btn-secondary" href="#resume">
+                        View Resume
+                    </a>
+                </div>
 
-<h1>Building technology that solves real business problems.</h1>
+            </div>
+        </section>
 
-<h2>Business Analysis • Data Analytics • AI Automation • Product Strategy</h2>
+        <section class="work-section" id="work">
 
-<p>
+            <p class="section-label">Selected Work</p>
 
-I bridge business needs and technology through data, automation, and thoughtful product design. My goal is to create solutions that improve workflows, support better decisions, and deliver meaningful user experiences.
+            <h2 class="section-title">
+                Solutions designed around real business needs.
+            </h2>
 
-</p>
+            <p class="section-intro">
+                My work explores the intersection of energy, analytics,
+                automation, product strategy, and user-centered design.
+            </p>
 
-<div class="buttons">
+            <div class="project-grid">
 
-<a class="btn primary" href="#">View My Work</a>
+                <article class="project-card">
+                    <div>
+                        <span class="project-number">01</span>
 
-<a class="btn secondary" href="#">Download Resume</a>
+                        <h3>Natural Gas Market Intelligence</h3>
 
-</div>
+                        <p>
+                            A planned analytics dashboard for monitoring natural gas
+                            supply, demand, storage, weather, and pricing information
+                            in one clear experience.
+                        </p>
 
-</div>
+                        <p class="project-tags">
+                            Energy Analytics • Python • SQL • Power BI
+                        </p>
+                    </div>
 
-</section>
+                    <a class="project-link" href="#">
+                        Case study coming soon →
+                    </a>
+                </article>
+
+                <article class="project-card">
+                    <div>
+                        <span class="project-number">02</span>
+
+                        <h3>Clean Slate Digital Experience</h3>
+
+                        <p>
+                            A product and UX case study focused on improving how
+                            customers explore wellness products and complete their
+                            ordering experience.
+                        </p>
+
+                        <p class="project-tags">
+                            Product Strategy • UX • Figma • Business
+                        </p>
+                    </div>
+
+                    <a class="project-link" href="#">
+                        Case study coming soon →
+                    </a>
+                </article>
+
+                <article class="project-card">
+                    <div>
+                        <span class="project-number">03</span>
+
+                        <h3>AI Workflow Assistant</h3>
+
+                        <p>
+                            A planned AI and automation solution designed to reduce
+                            repetitive work, organize information, and support faster
+                            business decisions.
+                        </p>
+
+                        <p class="project-tags">
+                            AI • Automation • Python • Product Thinking
+                        </p>
+                    </div>
+
+                    <a class="project-link" href="#">
+                        Case study coming soon →
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+        <section id="about">
+
+            <div class="about-grid">
+
+                <div class="about-card">
+                    <p>
+                        Technology should not only work. It should make work better.
+                    </p>
+                </div>
+
+                <div class="about-text">
+
+                    <p class="section-label">About Me</p>
+
+                    <h2 class="section-title">
+                        I bridge business needs and technical solutions.
+                    </h2>
+
+                    <p>
+                        I am a Computer Science student minoring in Management
+                        Information Systems, with professional experience supporting
+                        enterprise systems and business operations in the energy industry.
+                    </p>
+
+                    <p>
+                        My interests include business analysis, data analytics,
+                        artificial intelligence, workflow automation, product strategy,
+                        and user-centered design.
+                    </p>
+
+                    <p>
+                        I am building a career around understanding complex problems,
+                        communicating across teams, and creating practical technology
+                        solutions that deliver measurable business value.
+                    </p>
+
+                </div>
+
+            </div>
+        </section>
+
+        <section class="skills-section" id="skills">
+
+            <p class="section-label">Capabilities</p>
+
+            <h2 class="section-title">
+                Technical skills supported by business thinking.
+            </h2>
+
+            <p class="section-intro">
+                I am intentionally developing a versatile toolkit for technical
+                business analysis, analytics, automation, and product work.
+            </p>
+
+            <div class="skills-grid">
+
+                <div class="skill-group">
+                    <h3>Programming</h3>
+                    <p>
+                        Python<br>
+                        SQL<br>
+                        HTML<br>
+                        CSS<br>
+                        GitHub
+                    </p>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Analytics</h3>
+                    <p>
+                        Excel<br>
+                        Power BI<br>
+                        Data Visualization<br>
+                        Dashboard Design<br>
+                        Business Insights
+                    </p>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Business</h3>
+                    <p>
+                        Business Analysis<br>
+                        Requirements Gathering<br>
+                        Process Improvement<br>
+                        Technical Documentation<br>
+                        Stakeholder Communication
+                    </p>
+                </div>
+
+                <div class="skill-group">
+                    <h3>Product & Design</h3>
+                    <p>
+                        Product Strategy<br>
+                        Figma<br>
+                        UX Research<br>
+                        Wireframing<br>
+                        Prototyping
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="resume">
+
+            <p class="section-label">Resume</p>
+
+            <h2 class="section-title">
+                Experience across energy operations, enterprise systems, and entrepreneurship.
+            </h2>
+
+            <p class="section-intro">
+                My resume will be added here as a downloadable PDF once the final
+                recruiter-ready version is complete.
+            </p>
+
+            <a class="btn btn-primary" href="#">
+                Resume coming soon
+            </a>
+
+        </section>
+
+        <section class="contact-section" id="contact">
+
+            <p class="section-label">Contact</p>
+
+            <h2 class="section-title">
+                Let’s build something useful.
+            </h2>
+
+            <p class="section-intro">
+                I am interested in early-career opportunities involving business
+                analysis, energy technology, data analytics, AI automation,
+                product strategy, and technical problem solving.
+            </p>
+
+            <div class="buttons">
+                <a class="btn btn-primary" href="mailto:your-email@example.com">
+                    Email Me
+                </a>
+
+                <a class="btn btn-secondary" href="#" target="_blank">
+                    LinkedIn
+                </a>
+
+                <a class="btn btn-secondary" href="https://github.com/amberpena" target="_blank">
+                    GitHub
+                </a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Amber Peña</p>
+
+        <div>
+            <a href="#work">Work</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </footer>
 
 </body>
-
 </html>
