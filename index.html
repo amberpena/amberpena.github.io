@@ -331,30 +331,22 @@
         .profile-visual {
             position: relative;
             width: 100%;
-            height: 230px;
+            height: 300px;
             display: flex;
             justify-content: center;
             align-items: flex-end;
         }
 
-        .portrait-placeholder {
-            position: relative;
-            width: 172px;
-            height: 205px;
-            background: var(--ink);
-            border-radius: 88px 88px 18px 18px;
-            box-shadow: 22px 24px 0 rgba(255, 255, 255, 0.68);
-        }
-
-        .portrait-placeholder::before {
-            content: "AP";
-            position: absolute;
-            inset: 0;
-            display: grid;
-            place-items: center;
-            color: var(--paper);
-            font-family: "Instrument Serif", serif;
-            font-size: 66px;
+        .profile-photo {
+            width: 230px;
+            height: 290px;
+            object-fit: cover;
+            object-position: center 42%;
+            border-radius: 120px 120px 24px 24px;
+            border: 8px solid rgba(255, 255, 255, 0.88);
+            box-shadow:
+                26px 26px 0 rgba(255, 255, 255, 0.62),
+                0 30px 60px rgba(0, 0, 0, 0.10);
         }
 
         .floating-note {
@@ -368,6 +360,7 @@
             font-size: 11px;
             font-weight: 700;
             transform: rotate(4deg);
+            z-index: 2;
         }
 
         .profile-card h2 {
@@ -1169,6 +1162,11 @@
             .footer {
                 flex-direction: column;
             }
+
+            .profile-photo {
+                width: 205px;
+                height: 265px;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -1279,10 +1277,11 @@
                                 Business + Technology
                             </span>
 
-                            <div
-                                class="portrait-placeholder"
-                                aria-label="Amber Peña monogram portrait placeholder"
-                            ></div>
+                            <img
+                                src="IMG_3090.jpeg"
+                                alt="Amber Peña"
+                                class="profile-photo"
+                            >
 
                         </div>
 
@@ -1358,8 +1357,6 @@
 
                 <div class="work-grid">
 
-                    <!-- Project 1 -->
-
                     <article class="project project-large">
 
                         <div class="project-meta">
@@ -1411,8 +1408,6 @@
                         </div>
 
                     </article>
-
-                    <!-- Project 2 -->
 
                     <article class="project project-small">
 
@@ -1467,8 +1462,6 @@
                         </div>
 
                     </article>
-
-                    <!-- Project 3 -->
 
                     <article class="project project-full">
 
@@ -1824,13 +1817,15 @@
 
                     <div class="contact-links">
 
-                        <!-- Replace this email with your real email -->
-                        <a href="mailto:your-email@example.com">
+                        <a href="mailto:amberlpena21@gmail.com">
                             Email
                         </a>
 
-                        <!-- Replace # with your LinkedIn URL -->
-                        <a href="#" target="_blank" rel="noopener noreferrer">
+                        <a
+                            href="https://www.linkedin.com/in/amber-pe%C3%B1a-85a5151b6"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             LinkedIn
                         </a>
 
