@@ -2,26 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Amber Peña builds thoughtful technology solutions through business analysis, data, automation, and product strategy."
+    >
 
     <title>Amber Peña | Business Technology Solutions</title>
 
+    <!-- Editorial serif font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
+        rel="stylesheet"
+    >
 
     <style>
         :root {
-            --background: #fbf9fc;
-            --surface: #ffffff;
-            --surface-soft: #f3eef8;
-            --lavender: #8d79b8;
-            --lavender-dark: #66558f;
-            --lavender-light: #ddd2eb;
-            --text-dark: #25222a;
-            --text-soft: #68636f;
-            --border: rgba(102, 85, 143, 0.16);
-            --shadow: 0 24px 60px rgba(72, 56, 98, 0.10);
+            --cream: #f7f4ef;
+            --paper: #fffdf9;
+            --white: #ffffff;
+            --ink: #171717;
+            --soft-ink: #595752;
+            --taupe: #d8d0c7;
+            --stone: #ebe7e1;
+            --rose-gray: #b8a8aa;
+            --rose-soft: #eee6e5;
+            --sage-gray: #c8cec6;
+            --line: rgba(23, 23, 23, 0.14);
+            --shadow: 0 24px 70px rgba(32, 29, 25, 0.08);
+            --radius-large: 30px;
+            --radius-medium: 22px;
+            --max-width: 1380px;
         }
 
         * {
@@ -35,400 +55,1133 @@
         }
 
         body {
-            background: var(--background);
-            color: var(--text-dark);
-            font-family: "Manrope", sans-serif;
+            overflow-x: hidden;
+            background: var(--cream);
+            color: var(--ink);
+            font-family: "DM Sans", sans-serif;
             line-height: 1.6;
         }
 
+        body,
+        button,
         a {
+            cursor: default;
+        }
+
+        a,
+        button {
             color: inherit;
         }
 
-        nav {
+        a {
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .container {
+            width: min(calc(100% - 48px), var(--max-width));
+            margin: 0 auto;
+        }
+
+        .serif {
+            font-family: "Instrument Serif", serif;
+            font-weight: 400;
+        }
+
+        /* Navigation */
+
+        .site-header {
             position: sticky;
             top: 0;
             z-index: 1000;
+            padding: 18px 0;
+            background: rgba(247, 244, 239, 0.88);
+            border-bottom: 1px solid transparent;
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        .nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 24px 8%;
-            background: rgba(251, 249, 252, 0.92);
-            border-bottom: 1px solid var(--border);
-            backdrop-filter: blur(14px);
+            min-height: 58px;
         }
 
-        .logo {
-            color: var(--lavender-dark);
-            font-size: 22px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-
-        nav ul {
+        .brand {
             display: flex;
-            gap: 34px;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+        }
+
+        .brand-mark {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            background: var(--ink);
+            color: var(--paper);
+            border-radius: 50%;
+            font-family: "Instrument Serif", serif;
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
             list-style: none;
         }
 
-        nav a {
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 700;
-            transition: 0.2s ease;
+        .nav-links a {
+            position: relative;
+            font-size: 13px;
+            font-weight: 600;
         }
 
-        nav a:hover {
-            color: var(--lavender-dark);
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 100%;
+            height: 1px;
+            background: var(--ink);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 220ms ease;
         }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .nav-cta {
+            padding: 12px 20px;
+            background: var(--ink);
+            color: var(--paper);
+            border-radius: 999px;
+        }
+
+        .nav-links .nav-cta::after {
+            display: none;
+        }
+
+        /* Hero */
 
         .hero {
-            min-height: 88vh;
+            padding: 72px 0 110px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.35fr) minmax(330px, 0.65fr);
+            gap: 34px;
+            align-items: stretch;
+        }
+
+        .hero-main {
+            min-height: 690px;
             display: flex;
-            align-items: center;
-            padding: 120px 8% 100px;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: clamp(34px, 5vw, 72px);
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-large);
+            box-shadow: var(--shadow);
         }
 
-        .hero-content {
-            max-width: 920px;
+        .hero-topline {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            color: var(--soft-ink);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
         }
 
-        .eyebrow {
-            margin-bottom: 22px;
-            color: var(--lavender-dark);
-            font-size: 13px;
-            font-weight: 800;
-            letter-spacing: 2.5px;
+        .hero-copy {
+            margin: auto 0;
+            padding: 66px 0;
+        }
+
+        .hero-eyebrow {
+            margin-bottom: 24px;
+            color: var(--soft-ink);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
         }
 
         .hero h1 {
-            max-width: 860px;
-            color: var(--text-dark);
-            font-size: clamp(56px, 7vw, 94px);
-            line-height: 1.02;
-            letter-spacing: -4px;
+            max-width: 940px;
+            font-family: "Instrument Serif", serif;
+            font-size: clamp(67px, 8.2vw, 128px);
+            font-weight: 400;
+            line-height: 0.88;
+            letter-spacing: -0.045em;
         }
 
-        .hero h1 span {
-            color: var(--lavender-dark);
+        .hero h1 em {
+            color: var(--rose-gray);
+            font-weight: 400;
+        }
+
+        .hero-description-row {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 30px;
+            align-items: end;
         }
 
         .hero-description {
-            max-width: 720px;
-            margin-top: 30px;
-            color: var(--text-soft);
-            font-size: 20px;
+            max-width: 690px;
+            color: var(--soft-ink);
+            font-size: clamp(16px, 1.45vw, 20px);
             line-height: 1.8;
         }
 
-        .specialties {
-            margin-top: 22px;
-            color: var(--lavender-dark);
-            font-size: 15px;
-            font-weight: 800;
-        }
-
-        .buttons {
+        .hero-buttons {
             display: flex;
+            gap: 12px;
             flex-wrap: wrap;
-            gap: 14px;
-            margin-top: 38px;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 15px 24px;
+        .button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            min-height: 48px;
+            padding: 13px 21px;
+            border: 1px solid var(--ink);
             border-radius: 999px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 800;
-            transition: 0.25s ease;
+            font-size: 13px;
+            font-weight: 700;
+            transition:
+                transform 180ms ease,
+                background 180ms ease,
+                color 180ms ease;
         }
 
-        .btn-primary {
-            background: var(--lavender-dark);
-            color: #ffffff;
-            box-shadow: 0 14px 30px rgba(102, 85, 143, 0.24);
-        }
-
-        .btn-secondary {
-            border: 1.5px solid var(--lavender-dark);
-            color: var(--lavender-dark);
-            background: transparent;
-        }
-
-        .btn:hover {
+        .button:hover {
             transform: translateY(-3px);
         }
 
-        .hero-note {
-            margin-top: 56px;
-            color: var(--text-soft);
-            font-size: 14px;
+        .button-dark {
+            background: var(--ink);
+            color: var(--paper);
         }
 
-        section {
-            padding: 110px 8%;
+        .button-light {
+            background: transparent;
+            color: var(--ink);
         }
 
-        .section-label {
-            margin-bottom: 12px;
-            color: var(--lavender-dark);
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 2.4px;
-            text-transform: uppercase;
-        }
+        /* Hero side cards */
 
-        .section-title {
-            max-width: 760px;
-            margin-bottom: 20px;
-            font-size: clamp(38px, 5vw, 62px);
-            line-height: 1.08;
-            letter-spacing: -2.5px;
-        }
-
-        .section-intro {
-            max-width: 720px;
-            margin-bottom: 50px;
-            color: var(--text-soft);
-            font-size: 18px;
-            line-height: 1.8;
-        }
-
-        .work-section {
-            background: var(--surface);
-        }
-
-        .project-grid {
+        .hero-side {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 1.15fr 0.85fr;
             gap: 24px;
         }
 
-        .project-card {
+        .editorial-card {
+            position: relative;
+            overflow: hidden;
+            padding: 30px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-large);
+        }
+
+        .profile-card {
             min-height: 420px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(255, 255, 255, 0.82),
+                    transparent 40%
+                ),
+                var(--rose-soft);
+        }
+
+        .card-number {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+        }
+
+        .profile-visual {
+            position: relative;
+            width: 100%;
+            height: 230px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .portrait-placeholder {
+            position: relative;
+            width: 172px;
+            height: 205px;
+            background: var(--ink);
+            border-radius: 88px 88px 18px 18px;
+            box-shadow: 22px 24px 0 rgba(255, 255, 255, 0.68);
+        }
+
+        .portrait-placeholder::before {
+            content: "AP";
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            color: var(--paper);
+            font-family: "Instrument Serif", serif;
+            font-size: 66px;
+        }
+
+        .floating-note {
+            position: absolute;
+            top: 14px;
+            right: 0;
+            padding: 10px 14px;
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 700;
+            transform: rotate(4deg);
+        }
+
+        .profile-card h2 {
+            max-width: 310px;
+            font-family: "Instrument Serif", serif;
+            font-size: 38px;
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .status-card {
+            min-height: 245px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: var(--sage-gray);
+        }
+
+        .status-card p {
+            max-width: 340px;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .status-card h3 {
+            font-family: "Instrument Serif", serif;
+            font-size: 44px;
+            font-weight: 400;
+            line-height: 0.95;
+        }
+
+        .availability {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .availability-dot {
+            width: 9px;
+            height: 9px;
+            background: var(--ink);
+            border-radius: 50%;
+        }
+
+        /* Marquee */
+
+        .marquee {
+            overflow: hidden;
+            padding: 22px 0;
+            background: var(--ink);
+            color: var(--paper);
+        }
+
+        .marquee-track {
+            width: max-content;
+            display: flex;
+            gap: 42px;
+            animation: marquee 28s linear infinite;
+        }
+
+        .marquee-item {
+            display: flex;
+            align-items: center;
+            gap: 42px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .marquee-item::after {
+            content: "✦";
+            color: var(--rose-gray);
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Shared sections */
+
+        .section {
+            padding: 125px 0;
+        }
+
+        .section-heading {
+            display: grid;
+            grid-template-columns: 0.45fr 1.55fr;
+            gap: 40px;
+            margin-bottom: 58px;
+        }
+
+        .section-kicker {
+            padding-top: 10px;
+            color: var(--soft-ink);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.17em;
+            text-transform: uppercase;
+        }
+
+        .section-heading h2 {
+            max-width: 960px;
+            font-family: "Instrument Serif", serif;
+            font-size: clamp(54px, 6vw, 90px);
+            font-weight: 400;
+            line-height: 0.95;
+            letter-spacing: -0.035em;
+        }
+
+        .section-heading h2 em {
+            color: var(--rose-gray);
+            font-weight: 400;
+        }
+
+        /* Work */
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+
+        .project {
+            position: relative;
+            overflow: hidden;
+            min-height: 620px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             padding: 34px;
-            background: var(--surface-soft);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            transition: 0.3s ease;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-large);
+            transition:
+                transform 250ms ease,
+                box-shadow 250ms ease;
         }
 
-        .project-card:nth-child(2) {
-            background: #f8f5fb;
-        }
-
-        .project-card:nth-child(3) {
-            background: #eee7f5;
-        }
-
-        .project-card:hover {
+        .project:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow);
         }
 
-        .project-number {
-            color: var(--lavender-dark);
-            font-size: 13px;
-            font-weight: 800;
+        .project-large {
+            grid-column: span 7;
+            background: var(--stone);
         }
 
-        .project-card h3 {
-            margin-top: 34px;
-            color: var(--text-dark);
-            font-size: 30px;
-            line-height: 1.2;
-            letter-spacing: -1px;
+        .project-small {
+            grid-column: span 5;
+            background: var(--paper);
         }
 
-        .project-card p {
-            margin-top: 18px;
-            color: var(--text-soft);
+        .project-full {
+            grid-column: span 12;
+            min-height: 510px;
+            background: var(--rose-soft);
         }
 
-        .project-tags {
-            color: var(--lavender-dark) !important;
-            font-size: 13px;
-            font-weight: 800;
-            line-height: 1.8;
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            color: var(--soft-ink);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .project-visual {
+            position: relative;
+            min-height: 290px;
+            display: grid;
+            place-items: center;
+            margin: 34px 0;
+        }
+
+        .dashboard-mockup {
+            width: min(94%, 650px);
+            padding: 15px;
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            box-shadow: 0 26px 48px rgba(20, 20, 20, 0.12);
+            transform: rotate(-2deg);
+        }
+
+        .mockup-bar {
+            height: 22px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0 5px;
+        }
+
+        .mockup-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--taupe);
+            border-radius: 50%;
+        }
+
+        .mockup-content {
+            display: grid;
+            grid-template-columns: 0.62fr 1.38fr;
+            gap: 12px;
+            min-height: 210px;
+        }
+
+        .mockup-sidebar {
+            background: var(--ink);
+            border-radius: 11px;
+        }
+
+        .mockup-chart {
+            position: relative;
+            overflow: hidden;
+            background: #f4f1eb;
+            border-radius: 11px;
+        }
+
+        .mockup-chart::before {
+            content: "";
+            position: absolute;
+            left: 10%;
+            right: 8%;
+            bottom: 24%;
+            height: 2px;
+            background: var(--ink);
+            transform: rotate(-8deg);
+            box-shadow:
+                60px -28px 0 -0.4px var(--rose-gray),
+                120px -6px 0 -0.4px var(--ink),
+                180px -48px 0 -0.4px var(--rose-gray),
+                240px -64px 0 -0.4px var(--ink);
+        }
+
+        .phone-mockup {
+            width: 190px;
+            height: 350px;
+            padding: 10px;
+            background: var(--ink);
+            border-radius: 34px;
+            box-shadow: 24px 26px 0 rgba(184, 168, 170, 0.35);
+            transform: rotate(5deg);
+        }
+
+        .phone-screen {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            background: #f6eadc;
+            border-radius: 26px;
+        }
+
+        .phone-title {
+            margin-top: 54px;
+            font-family: "Instrument Serif", serif;
+            font-size: 29px;
+            line-height: 0.95;
+        }
+
+        .phone-button {
+            margin-top: auto;
+            padding: 12px;
+            background: var(--ink);
+            color: var(--paper);
+            border-radius: 999px;
+            text-align: center;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .workflow-visual {
+            width: min(94%, 850px);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            transform: rotate(-1deg);
+        }
+
+        .workflow-card {
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 22px;
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            box-shadow: 0 18px 38px rgba(20, 20, 20, 0.08);
+        }
+
+        .workflow-card:nth-child(2) {
+            transform: translateY(28px);
+            background: var(--ink);
+            color: var(--paper);
+        }
+
+        .workflow-card span {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .workflow-card strong {
+            font-family: "Instrument Serif", serif;
+            font-size: 29px;
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .project h3 {
+            max-width: 650px;
+            font-family: "Instrument Serif", serif;
+            font-size: clamp(42px, 4.2vw, 70px);
+            font-weight: 400;
+            line-height: 0.98;
+        }
+
+        .project-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 25px;
+        }
+
+        .project-description {
+            max-width: 520px;
+            color: var(--soft-ink);
+            font-size: 14px;
+            line-height: 1.75;
         }
 
         .project-link {
-            display: inline-block;
-            margin-top: 30px;
-            color: var(--lavender-dark);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 800;
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid var(--ink);
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* About */
+
+        .about-section {
+            background: var(--paper);
         }
 
         .about-grid {
             display: grid;
-            grid-template-columns: 0.9fr 1.1fr;
-            gap: 72px;
-            align-items: center;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 70px;
+            align-items: stretch;
         }
 
-        .about-visual {
-            min-height: 480px;
+        .about-editorial {
+            min-height: 620px;
             display: flex;
-            align-items: flex-end;
+            flex-direction: column;
+            justify-content: space-between;
             padding: 40px;
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(141, 121, 184, 0.94),
-                    rgba(102, 85, 143, 0.98)
-                );
-            border-radius: 28px;
-            box-shadow: var(--shadow);
+            background: var(--ink);
+            color: var(--paper);
+            border-radius: var(--radius-large);
         }
 
-        .about-visual p {
-            max-width: 430px;
-            color: #ffffff;
-            font-size: 32px;
-            font-weight: 800;
-            line-height: 1.3;
-            letter-spacing: -1px;
+        .about-editorial small {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
         }
 
-        .about-text p {
+        .about-editorial blockquote {
+            font-family: "Instrument Serif", serif;
+            font-size: clamp(46px, 5vw, 76px);
+            line-height: 0.96;
+        }
+
+        .about-editorial blockquote em {
+            color: var(--rose-gray);
+            font-weight: 400;
+        }
+
+        .about-editorial footer {
+            color: #c8c4bd;
+            font-size: 12px;
+        }
+
+        .about-copy {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 28px 0;
+        }
+
+        .about-copy h2 {
+            max-width: 720px;
+            margin-bottom: 32px;
+            font-family: "Instrument Serif", serif;
+            font-size: clamp(56px, 6vw, 88px);
+            font-weight: 400;
+            line-height: 0.95;
+        }
+
+        .about-copy p {
+            max-width: 700px;
+            margin-bottom: 20px;
+            color: var(--soft-ink);
+            font-size: 17px;
+            line-height: 1.9;
+        }
+
+        .about-facts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-top: 32px;
+        }
+
+        .fact {
+            min-height: 130px;
+            padding: 22px;
+            background: var(--cream);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+        }
+
+        .fact span {
+            display: block;
             margin-bottom: 18px;
-            color: var(--text-soft);
-            font-size: 18px;
+            color: var(--soft-ink);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .fact strong {
+            font-family: "Instrument Serif", serif;
+            font-size: 27px;
+            font-weight: 400;
+            line-height: 1.1;
+        }
+
+        /* Capabilities */
+
+        .capabilities-grid {
+            border-top: 1px solid var(--line);
+        }
+
+        .capability {
+            display: grid;
+            grid-template-columns: 0.15fr 0.55fr 1.3fr;
+            gap: 28px;
+            align-items: center;
+            padding: 32px 0;
+            border-bottom: 1px solid var(--line);
+            transition: padding 180ms ease;
+        }
+
+        .capability:hover {
+            padding-left: 12px;
+        }
+
+        .capability-number {
+            color: var(--soft-ink);
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .capability h3 {
+            font-family: "Instrument Serif", serif;
+            font-size: 37px;
+            font-weight: 400;
+        }
+
+        .capability p {
+            color: var(--soft-ink);
+            font-size: 14px;
             line-height: 1.8;
         }
 
-        .skills-section {
-            background: #f1edf5;
+        /* Experience */
+
+        .experience-section {
+            background: var(--stone);
         }
 
-        .skills-grid {
+        .experience-card {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 22px;
-        }
-
-        .skill-group {
-            padding: 30px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-        }
-
-        .skill-group h3 {
-            margin-bottom: 18px;
-            color: var(--lavender-dark);
-            font-size: 20px;
-        }
-
-        .skill-group p {
-            color: var(--text-soft);
-            line-height: 2;
-        }
-
-        .resume-card {
-            padding: 48px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 26px;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 70px;
+            padding: clamp(32px, 5vw, 70px);
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-large);
             box-shadow: var(--shadow);
         }
 
-        .contact-section {
-            text-align: center;
+        .experience-card h2 {
+            max-width: 620px;
+            font-family: "Instrument Serif", serif;
+            font-size: clamp(54px, 6vw, 86px);
+            font-weight: 400;
+            line-height: 0.95;
         }
 
-        .contact-section .section-title,
-        .contact-section .section-intro {
-            margin-left: auto;
-            margin-right: auto;
+        .experience-list {
+            display: flex;
+            flex-direction: column;
         }
 
-        footer {
+        .experience-item {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .experience-item:first-child {
+            padding-top: 0;
+        }
+
+        .experience-item:last-child {
+            border-bottom: 0;
+        }
+
+        .experience-item span {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--soft-ink);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .experience-item h3 {
+            margin-bottom: 8px;
+            font-family: "Instrument Serif", serif;
+            font-size: 30px;
+            font-weight: 400;
+        }
+
+        .experience-item p {
+            color: var(--soft-ink);
+            font-size: 14px;
+            line-height: 1.75;
+        }
+
+        /* Contact */
+
+        .contact {
+            padding: 120px 0 54px;
+            background: var(--ink);
+            color: var(--paper);
+        }
+
+        .contact-panel {
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .contact-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .contact h2 {
+            max-width: 1150px;
+            margin: 64px 0;
+            font-family: "Instrument Serif", serif;
+            font-size: clamp(70px, 9vw, 145px);
+            font-weight: 400;
+            line-height: 0.82;
+            letter-spacing: -0.04em;
+        }
+
+        .contact h2 em {
+            color: var(--rose-gray);
+            font-weight: 400;
+        }
+
+        .contact-bottom {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 34px 8%;
-            background: var(--text-dark);
-            color: #ffffff;
+            align-items: flex-end;
+            gap: 40px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255, 255, 255, 0.22);
         }
 
-        footer a {
-            margin-left: 20px;
-            text-decoration: none;
+        .contact-copy {
+            max-width: 560px;
+            color: #c8c4bd;
+            font-size: 15px;
+            line-height: 1.8;
         }
 
-        @media (max-width: 950px) {
-            nav ul {
-                display: none;
-            }
+        .contact-links {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
 
-            .hero {
-                min-height: auto;
-                padding-top: 110px;
-                padding-bottom: 100px;
-            }
+        .contact-links a {
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--paper);
+            font-size: 12px;
+            font-weight: 700;
+        }
 
-            .hero h1 {
-                letter-spacing: -2px;
-            }
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding-top: 60px;
+            color: #aaa69e;
+            font-size: 11px;
+        }
 
-            .project-grid,
-            .skills-grid,
-            .about-grid {
+        /* Responsive */
+
+        @media (max-width: 1050px) {
+            .hero-grid {
                 grid-template-columns: 1fr;
             }
 
-            .project-card {
+            .hero-side {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto;
+            }
+
+            .profile-card,
+            .status-card {
                 min-height: 350px;
             }
 
-            .about-visual {
-                min-height: 380px;
+            .hero-description-row,
+            .section-heading,
+            .about-grid,
+            .experience-card {
+                grid-template-columns: 1fr;
+            }
+
+            .project-large,
+            .project-small,
+            .project-full {
+                grid-column: span 12;
+            }
+
+            .project {
+                min-height: 560px;
+            }
+
+            .capability {
+                grid-template-columns: 0.15fr 0.85fr;
+            }
+
+            .capability p {
+                grid-column: 2;
             }
         }
 
-        @media (max-width: 600px) {
-            nav,
-            .hero,
-            section,
-            footer {
-                padding-left: 6%;
-                padding-right: 6%;
+        @media (max-width: 760px) {
+            .container {
+                width: min(calc(100% - 28px), var(--max-width));
+            }
+
+            .site-header {
+                padding: 10px 0;
+            }
+
+            .nav-links li:not(:last-child) {
+                display: none;
+            }
+
+            .nav-cta {
+                padding: 10px 16px;
+            }
+
+            .hero {
+                padding-top: 30px;
+                padding-bottom: 78px;
+            }
+
+            .hero-main {
+                min-height: 640px;
+                padding: 28px;
             }
 
             .hero h1 {
+                font-size: clamp(62px, 18vw, 91px);
+            }
+
+            .hero-topline span:last-child {
+                display: none;
+            }
+
+            .hero-description-row {
+                align-items: start;
+            }
+
+            .hero-side {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 88px 0;
+            }
+
+            .section-heading {
+                margin-bottom: 38px;
+            }
+
+            .section-heading h2 {
+                font-size: 55px;
+            }
+
+            .project {
+                min-height: 530px;
+                padding: 25px;
+            }
+
+            .project h3 {
                 font-size: 48px;
             }
 
-            .hero-description {
-                font-size: 18px;
+            .project-bottom {
+                align-items: flex-start;
+                flex-direction: column;
             }
 
-            .section-title {
-                font-size: 40px;
+            .workflow-visual {
+                grid-template-columns: 1fr;
             }
 
-            .buttons {
+            .workflow-card:nth-child(2) {
+                transform: none;
+            }
+
+            .workflow-card:nth-child(3) {
+                display: none;
+            }
+
+            .about-editorial {
+                min-height: 510px;
+                padding: 28px;
+            }
+
+            .about-copy h2 {
+                font-size: 55px;
+            }
+
+            .about-facts {
+                grid-template-columns: 1fr;
+            }
+
+            .capability {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                padding: 25px 0;
+            }
+
+            .capability p {
+                grid-column: auto;
+            }
+
+            .contact h2 {
+                font-size: clamp(65px, 19vw, 96px);
+            }
+
+            .contact-bottom {
                 flex-direction: column;
                 align-items: flex-start;
             }
 
-            footer {
+            .footer {
                 flex-direction: column;
-                gap: 18px;
-                text-align: center;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
             }
 
-            footer a {
-                margin: 0 8px;
+            .marquee-track {
+                animation: none;
+            }
+
+            * {
+                transition: none !important;
             }
         }
     </style>
@@ -436,311 +1189,679 @@
 
 <body>
 
-    <nav>
-        <div class="logo">Amber Peña</div>
+    <header class="site-header">
+        <div class="container nav">
 
-        <ul>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#resume">Resume</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+            <a class="brand" href="#top" aria-label="Amber Peña home">
+                <span class="brand-mark">A</span>
+                <span>Amber Peña</span>
+            </a>
 
-    <main>
+            <ul class="nav-links">
+                <li><a href="#work">Work</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#capabilities">Capabilities</a></li>
+                <li><a href="#experience">Experience</a></li>
+
+                <li>
+                    <a class="nav-cta" href="#contact">
+                        Let’s connect
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </header>
+
+    <main id="top">
+
+        <!-- Hero -->
 
         <section class="hero">
-            <div class="hero-content">
+            <div class="container hero-grid">
 
-                <p class="eyebrow">
-                    Business Technology Solutions
-                </p>
+                <div class="hero-main">
 
-                <h1>
-                    Building technology that solves
-                    <span>real business problems.</span>
-                </h1>
+                    <div class="hero-topline">
+                        <span>Business Technology Solutions</span>
+                        <span>Houston, Texas</span>
+                    </div>
 
-                <p class="hero-description">
-                    I design technology solutions that connect business goals
-                    with data, automation, and user-centered experiences.
-                    My work focuses on transforming complex challenges into
-                    practical solutions that create measurable business value.
-                </p>
+                    <div class="hero-copy">
 
-                <p class="specialties">
-                    Business Analysis • Data Analytics • AI Automation • Product Strategy
-                </p>
+                        <p class="hero-eyebrow">
+                            Strategy · Data · Automation · Product
+                        </p>
 
-                <div class="buttons">
-                    <a class="btn btn-primary" href="#work">
-                        Explore My Work
-                    </a>
+                        <h1>
+                            Building technology for
+                            <em>real business</em>
+                            problems.
+                        </h1>
 
-                    <a class="btn btn-secondary" href="#resume">
-                        Resume
-                    </a>
+                    </div>
+
+                    <div class="hero-description-row">
+
+                        <p class="hero-description">
+                            I connect business goals with data, automation,
+                            enterprise systems, and thoughtful digital
+                            experiences to create solutions that are clear,
+                            useful, and built with purpose.
+                        </p>
+
+                        <div class="hero-buttons">
+
+                            <a class="button button-dark" href="#work">
+                                Explore my work
+                                <span>↘</span>
+                            </a>
+
+                            <a class="button button-light" href="#experience">
+                                View experience
+                            </a>
+
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <p class="hero-note">
-                    Computer Science student • Management Information Systems minor • Houston, Texas
-                </p>
+                <aside class="hero-side">
+
+                    <article class="editorial-card profile-card">
+
+                        <div class="card-number">PROFILE / 01</div>
+
+                        <div class="profile-visual">
+
+                            <span class="floating-note">
+                                Business + Technology
+                            </span>
+
+                            <div
+                                class="portrait-placeholder"
+                                aria-label="Amber Peña monogram portrait placeholder"
+                            ></div>
+
+                        </div>
+
+                        <h2>
+                            Hi, I’m Amber — a creative problem solver building
+                            at the intersection of business and technology.
+                        </h2>
+
+                    </article>
+
+                    <article class="editorial-card status-card">
+
+                        <div class="availability">
+                            <span class="availability-dot"></span>
+                            Building my next chapter
+                        </div>
+
+                        <h3>
+                            From energy operations to digital solutions.
+                        </h3>
+
+                        <p>
+                            Computer Science student, MIS minor, enterprise
+                            systems professional, and founder of Clean Slate Juice.
+                        </p>
+
+                    </article>
+
+                </aside>
 
             </div>
         </section>
 
-        <section class="work-section" id="work">
+        <!-- Moving specialty line -->
 
-            <p class="section-label">Selected Work</p>
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
 
-            <h2 class="section-title">
-                Thoughtful solutions built around real business needs.
-            </h2>
+                <span class="marquee-item">Business Analysis</span>
+                <span class="marquee-item">Energy Technology</span>
+                <span class="marquee-item">Data Analytics</span>
+                <span class="marquee-item">AI Automation</span>
+                <span class="marquee-item">Product Strategy</span>
+                <span class="marquee-item">User Experience</span>
 
-            <p class="section-intro">
-                My work explores the intersection of energy, analytics,
-                automation, product strategy, and user-centered design.
-            </p>
-
-            <div class="project-grid">
-
-                <article class="project-card">
-                    <div>
-                        <span class="project-number">01</span>
-
-                        <h3>Natural Gas Market Intelligence</h3>
-
-                        <p>
-                            A planned analytics experience designed to help users
-                            monitor natural gas supply, demand, storage, weather,
-                            and pricing information in one clear dashboard.
-                        </p>
-
-                        <p class="project-tags">
-                            Energy Analytics • Python • SQL • Power BI
-                        </p>
-                    </div>
-
-                    <a class="project-link" href="#">
-                        Case study coming soon →
-                    </a>
-                </article>
-
-                <article class="project-card">
-                    <div>
-                        <span class="project-number">02</span>
-
-                        <h3>Clean Slate Digital Experience</h3>
-
-                        <p>
-                            A product and UX case study focused on improving how
-                            customers discover wellness products and complete
-                            their ordering journey.
-                        </p>
-
-                        <p class="project-tags">
-                            Product Strategy • UX • Figma • Business Analysis
-                        </p>
-                    </div>
-
-                    <a class="project-link" href="#">
-                        Case study coming soon →
-                    </a>
-                </article>
-
-                <article class="project-card">
-                    <div>
-                        <span class="project-number">03</span>
-
-                        <h3>AI Workflow Assistant</h3>
-
-                        <p>
-                            A planned AI solution designed to reduce repetitive
-                            business tasks, organize information, and support
-                            faster decision-making.
-                        </p>
-
-                        <p class="project-tags">
-                            AI • Automation • Python • Product Thinking
-                        </p>
-                    </div>
-
-                    <a class="project-link" href="#">
-                        Case study coming soon →
-                    </a>
-                </article>
+                <span class="marquee-item">Business Analysis</span>
+                <span class="marquee-item">Energy Technology</span>
+                <span class="marquee-item">Data Analytics</span>
+                <span class="marquee-item">AI Automation</span>
+                <span class="marquee-item">Product Strategy</span>
+                <span class="marquee-item">User Experience</span>
 
             </div>
-        </section>
+        </div>
 
-        <section id="about">
+        <!-- Work -->
 
-            <div class="about-grid">
+        <section class="section" id="work">
+            <div class="container">
 
-                <div class="about-visual">
-                    <p>
-                        Technology is most powerful when it helps people make better decisions.
+                <div class="section-heading">
+
+                    <p class="section-kicker">
+                        Selected work
                     </p>
+
+                    <h2>
+                        Ideas shaped into
+                        <em>useful solutions.</em>
+                    </h2>
+
                 </div>
 
-                <div class="about-text">
+                <div class="work-grid">
 
-                    <p class="section-label">About Me</p>
+                    <!-- Project 1 -->
 
-                    <h2 class="section-title">
-                        I bridge business needs and technical solutions.
+                    <article class="project project-large">
+
+                        <div class="project-meta">
+                            <span>Energy Analytics</span>
+                            <span>01 / 03</span>
+                        </div>
+
+                        <div class="project-visual">
+
+                            <div class="dashboard-mockup">
+
+                                <div class="mockup-bar">
+                                    <span class="mockup-dot"></span>
+                                    <span class="mockup-dot"></span>
+                                    <span class="mockup-dot"></span>
+                                </div>
+
+                                <div class="mockup-content">
+                                    <div class="mockup-sidebar"></div>
+                                    <div class="mockup-chart"></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Natural Gas Market Intelligence
+                            </h3>
+
+                            <div class="project-bottom">
+
+                                <p class="project-description">
+                                    A developing analytics experience designed
+                                    to bring pricing, storage, supply, demand,
+                                    and weather information into one clear
+                                    decision-support dashboard.
+                                </p>
+
+                                <a class="project-link" href="#">
+                                    Case study coming soon
+                                    <span>↗</span>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                    <!-- Project 2 -->
+
+                    <article class="project project-small">
+
+                        <div class="project-meta">
+                            <span>Product + UX</span>
+                            <span>02 / 03</span>
+                        </div>
+
+                        <div class="project-visual">
+
+                            <div class="phone-mockup">
+                                <div class="phone-screen">
+
+                                    <span class="card-number">
+                                        CLEAN SLATE
+                                    </span>
+
+                                    <p class="phone-title">
+                                        Wellness made simpler.
+                                    </p>
+
+                                    <div class="phone-button">
+                                        Build your order
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Clean Slate Digital Experience
+                            </h3>
+
+                            <div class="project-bottom">
+
+                                <p class="project-description">
+                                    A product strategy and UX concept focused on
+                                    simplifying product discovery, ordering, and
+                                    customer education for a wellness brand.
+                                </p>
+
+                                <a class="project-link" href="#">
+                                    Case study coming soon
+                                    <span>↗</span>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                    <!-- Project 3 -->
+
+                    <article class="project project-full">
+
+                        <div class="project-meta">
+                            <span>AI + Workflow Design</span>
+                            <span>03 / 03</span>
+                        </div>
+
+                        <div class="project-visual">
+
+                            <div class="workflow-visual">
+
+                                <div class="workflow-card">
+                                    <span>01 · Capture</span>
+                                    <strong>
+                                        Organize incoming requests.
+                                    </strong>
+                                </div>
+
+                                <div class="workflow-card">
+                                    <span>02 · Assist</span>
+                                    <strong>
+                                        Surface the next best action.
+                                    </strong>
+                                </div>
+
+                                <div class="workflow-card">
+                                    <span>03 · Improve</span>
+                                    <strong>
+                                        Reduce repetitive work.
+                                    </strong>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                AI Workflow Assistant
+                            </h3>
+
+                            <div class="project-bottom">
+
+                                <p class="project-description">
+                                    A concept exploring how artificial
+                                    intelligence can organize information,
+                                    reduce repetitive tasks, and support faster,
+                                    more consistent business decisions.
+                                </p>
+
+                                <a class="project-link" href="#">
+                                    Case study coming soon
+                                    <span>↗</span>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- About -->
+
+        <section class="section about-section" id="about">
+            <div class="container about-grid">
+
+                <article class="about-editorial">
+
+                    <small>
+                        My approach
+                    </small>
+
+                    <blockquote>
+                        Technology is most powerful when it helps people
+                        <em>make better decisions.</em>
+                    </blockquote>
+
+                    <footer>
+                        Amber Peña · Business Technology Solutions
+                    </footer>
+
+                </article>
+
+                <div class="about-copy">
+
+                    <p class="section-kicker">
+                        About me
+                    </p>
+
+                    <h2>
+                        Business-minded.
+                        Technically curious.
+                        People-centered.
                     </h2>
 
                     <p>
-                        I am a Computer Science student minoring in Management
-                        Information Systems, with professional experience supporting
-                        enterprise systems and business operations in the energy industry.
+                        I am pursuing a bachelor’s degree in Computer Science
+                        with a minor in Management Information Systems while
+                        supporting enterprise systems and engineering records
+                        in the energy industry.
                     </p>
 
                     <p>
-                        My interests include business analysis, data analytics,
-                        artificial intelligence, workflow automation, product strategy,
-                        and user-centered design.
+                        My work and interests sit between business operations
+                        and technology. I enjoy understanding how people work,
+                        identifying friction, and translating complex needs into
+                        practical digital solutions.
                     </p>
 
                     <p>
-                        I am building a career around understanding complex problems,
-                        communicating across teams, and creating practical technology
-                        solutions that deliver measurable business value.
+                        I am especially interested in business analysis, data
+                        analytics, AI automation, product strategy, energy
+                        technology, and user-centered design.
                     </p>
+
+                    <div class="about-facts">
+
+                        <div class="fact">
+                            <span>Based in</span>
+                            <strong>Houston, Texas</strong>
+                        </div>
+
+                        <div class="fact">
+                            <span>Industry experience</span>
+                            <strong>Energy + Enterprise Systems</strong>
+                        </div>
+
+                        <div class="fact">
+                            <span>Education</span>
+                            <strong>Computer Science + MIS</strong>
+                        </div>
+
+                        <div class="fact">
+                            <span>Entrepreneurship</span>
+                            <strong>Founder, Clean Slate Juice</strong>
+                        </div>
+
+                    </div>
 
                 </div>
 
             </div>
         </section>
 
-        <section class="skills-section" id="skills">
+        <!-- Capabilities -->
 
-            <p class="section-label">Capabilities</p>
+        <section class="section" id="capabilities">
+            <div class="container">
 
-            <h2 class="section-title">
-                Technical skills supported by business thinking.
-            </h2>
+                <div class="section-heading">
 
-            <p class="section-intro">
-                I am intentionally developing a versatile toolkit for technical
-                business analysis, analytics, automation, and product work.
-            </p>
-
-            <div class="skills-grid">
-
-                <div class="skill-group">
-                    <h3>Programming</h3>
-                    <p>
-                        Python<br>
-                        SQL<br>
-                        HTML<br>
-                        CSS<br>
-                        GitHub
+                    <p class="section-kicker">
+                        Capabilities
                     </p>
+
+                    <h2>
+                        A growing toolkit for
+                        <em>business transformation.</em>
+                    </h2>
+
                 </div>
 
-                <div class="skill-group">
-                    <h3>Analytics</h3>
-                    <p>
-                        Excel<br>
-                        Power BI<br>
-                        Data Visualization<br>
-                        Dashboard Design<br>
-                        Business Insights
-                    </p>
-                </div>
+                <div class="capabilities-grid">
 
-                <div class="skill-group">
-                    <h3>Business</h3>
-                    <p>
-                        Business Analysis<br>
-                        Requirements Gathering<br>
-                        Process Improvement<br>
-                        Technical Documentation<br>
-                        Stakeholder Communication
-                    </p>
-                </div>
+                    <article class="capability">
 
-                <div class="skill-group">
-                    <h3>Product & Design</h3>
-                    <p>
-                        Product Strategy<br>
-                        Figma<br>
-                        UX Research<br>
-                        Wireframing<br>
-                        Prototyping
-                    </p>
+                        <span class="capability-number">01</span>
+
+                        <h3>Business Analysis</h3>
+
+                        <p>
+                            Requirements gathering, stakeholder communication,
+                            process documentation, problem definition, workflow
+                            analysis, and translating business needs into clear
+                            solution requirements.
+                        </p>
+
+                    </article>
+
+                    <article class="capability">
+
+                        <span class="capability-number">02</span>
+
+                        <h3>Data + Analytics</h3>
+
+                        <p>
+                            Python, SQL, Excel, Power BI, dashboard concepts,
+                            data visualization, trend analysis, and transforming
+                            raw information into useful business insight.
+                        </p>
+
+                    </article>
+
+                    <article class="capability">
+
+                        <span class="capability-number">03</span>
+
+                        <h3>AI + Automation</h3>
+
+                        <p>
+                            Exploring AI-assisted workflows, repetitive-task
+                            reduction, information organization, decision
+                            support, and practical automation opportunities.
+                        </p>
+
+                    </article>
+
+                    <article class="capability">
+
+                        <span class="capability-number">04</span>
+
+                        <h3>Product + UX</h3>
+
+                        <p>
+                            Product thinking, customer journeys, wireframes,
+                            prototyping, Figma, user-centered design, and
+                            creating experiences around real user needs.
+                        </p>
+
+                    </article>
+
+                    <article class="capability">
+
+                        <span class="capability-number">05</span>
+
+                        <h3>Enterprise Systems</h3>
+
+                        <p>
+                            Experience supporting engineering records,
+                            enterprise content systems, technical documentation,
+                            process consistency, and operational teams.
+                        </p>
+
+                    </article>
+
                 </div>
 
             </div>
         </section>
 
-        <section id="resume">
+        <!-- Experience -->
 
-            <div class="resume-card">
+        <section class="section experience-section" id="experience">
+            <div class="container">
 
-                <p class="section-label">Resume</p>
+                <div class="experience-card">
 
-                <h2 class="section-title">
-                    Experience across energy operations, enterprise systems, and entrepreneurship.
-                </h2>
+                    <div>
 
-                <p class="section-intro">
-                    My downloadable resume will be added here once the final
-                    recruiter-ready version is complete.
+                        <p class="section-kicker">
+                            Experience
+                        </p>
+
+                        <h2>
+                            Where operations, technology, and initiative meet.
+                        </h2>
+
+                    </div>
+
+                    <div class="experience-list">
+
+                        <article class="experience-item">
+
+                            <span>Energy Transfer · Current</span>
+
+                            <h3>
+                                Engineering Records Administrator
+                            </h3>
+
+                            <p>
+                                Supporting engineering records, enterprise
+                                systems, technical documentation, scanning
+                                workflows, information quality, and internal
+                                users in the energy industry.
+                            </p>
+
+                        </article>
+
+                        <article class="experience-item">
+
+                            <span>University of Houston–Downtown</span>
+
+                            <h3>
+                                Computer Science Student
+                            </h3>
+
+                            <p>
+                                Building foundations in programming,
+                                problem-solving, information systems, and the
+                                relationship between technical solutions and
+                                business operations.
+                            </p>
+
+                        </article>
+
+                        <article class="experience-item">
+
+                            <span>Clean Slate Juice</span>
+
+                            <h3>
+                                Founder
+                            </h3>
+
+                            <p>
+                                Developing a wellness brand through product
+                                decisions, customer experience, digital
+                                marketing, operations, partnerships, and
+                                business strategy.
+                            </p>
+
+                        </article>
+
+                        <a class="button button-dark" href="#">
+                            Resume coming soon
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact -->
+
+        <section class="contact" id="contact">
+            <div class="container contact-panel">
+
+                <p class="contact-label">
+                    Let’s connect
                 </p>
 
-                <a class="btn btn-primary" href="#">
-                    Resume coming soon
-                </a>
+                <h2>
+                    Let’s build something
+                    <em>useful.</em>
+                </h2>
+
+                <div class="contact-bottom">
+
+                    <p class="contact-copy">
+                        I am interested in early-career opportunities involving
+                        business analysis, energy technology, analytics, AI
+                        automation, enterprise systems, and product strategy.
+                    </p>
+
+                    <div class="contact-links">
+
+                        <!-- Replace this email with your real email -->
+                        <a href="mailto:your-email@example.com">
+                            Email
+                        </a>
+
+                        <!-- Replace # with your LinkedIn URL -->
+                        <a href="#" target="_blank" rel="noopener noreferrer">
+                            LinkedIn
+                        </a>
+
+                        <a
+                            href="https://github.com/amberpena"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            GitHub
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <footer class="footer">
+
+                    <span>
+                        © 2026 Amber Peña
+                    </span>
+
+                    <span>
+                        Designed with strategy, curiosity, and intention.
+                    </span>
+
+                </footer>
 
             </div>
-
-        </section>
-
-        <section class="contact-section" id="contact">
-
-            <p class="section-label">Contact</p>
-
-            <h2 class="section-title">
-                Let’s build something useful.
-            </h2>
-
-            <p class="section-intro">
-                I am interested in early-career opportunities involving business
-                analysis, energy technology, data analytics, AI automation,
-                product strategy, and technical problem solving.
-            </p>
-
-            <div class="buttons">
-                <a class="btn btn-primary" href="mailto:your-email@example.com">
-                    Email Me
-                </a>
-
-                <a class="btn btn-secondary" href="#" target="_blank">
-                    LinkedIn
-                </a>
-
-                <a class="btn btn-secondary" href="https://github.com/amberpena" target="_blank">
-                    GitHub
-                </a>
-            </div>
-
         </section>
 
     </main>
-
-    <footer>
-        <p>© 2026 Amber Peña</p>
-
-        <div>
-            <a href="#work">Work</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </footer>
 
 </body>
 </html>
