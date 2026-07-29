@@ -10,7 +10,7 @@
 
     <meta
         name="description"
-        content="Amber Peña builds thoughtful technology solutions through business analysis, data, automation, enterprise systems, and product strategy."
+        content="Amber Peña builds thoughtful technology solutions through business analysis, energy analytics, automation, enterprise systems, and product strategy."
     >
 
     <title>Amber Peña | Business Technology Solutions</title>
@@ -41,6 +41,7 @@
             --rose-soft: #eee6e5;
             --sage-gray: #c8cec6;
             --line: rgba(23, 23, 23, 0.14);
+            --dark-line: rgba(255, 255, 255, 0.14);
             --shadow: 0 24px 70px rgba(32, 29, 25, 0.08);
             --radius-large: 30px;
             --radius-medium: 22px;
@@ -66,6 +67,10 @@
             line-height: 1.6;
         }
 
+        body.modal-open {
+            overflow: hidden;
+        }
+
         a {
             color: inherit;
             text-decoration: none;
@@ -73,6 +78,7 @@
         }
 
         button {
+            color: inherit;
             font: inherit;
         }
 
@@ -91,6 +97,15 @@
             font-weight: 400;
         }
 
+        .screen-reader-text {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+        }
+
         /* =========================
            NAVIGATION
         ========================= */
@@ -100,7 +115,7 @@
             top: 0;
             z-index: 1000;
             padding: 16px 0;
-            background: rgba(247, 244, 239, 0.9);
+            background: rgba(247, 244, 239, 0.92);
             border-bottom: 1px solid rgba(23, 23, 23, 0.06);
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
@@ -164,7 +179,8 @@
             transition: transform 220ms ease;
         }
 
-        .nav-links a:not(.nav-cta):hover::after {
+        .nav-links a:not(.nav-cta):hover::after,
+        .nav-links a:not(.nav-cta):focus-visible::after {
             transform: scaleX(1);
             transform-origin: left;
         }
@@ -226,6 +242,11 @@
             border-color: var(--paper);
         }
 
+        .button-outline-paper {
+            color: var(--paper);
+            border-color: rgba(255, 255, 255, 0.55);
+        }
+
         /* =========================
            HERO
         ========================= */
@@ -243,11 +264,11 @@
             align-items: stretch;
         }
 
-        /* Profile is now on the left */
-
         .hero-side {
             display: grid;
-            grid-template-rows: minmax(0, 1.35fr) minmax(245px, 0.65fr);
+            grid-template-rows:
+                minmax(0, 1.35fr)
+                minmax(245px, 0.65fr);
             gap: 24px;
             min-width: 0;
         }
@@ -299,8 +320,8 @@
             height: 310px;
             object-fit: cover;
             object-position: center 42%;
-            border-radius: 130px 130px 26px 26px;
             border: 8px solid rgba(255, 255, 255, 0.9);
+            border-radius: 130px 130px 26px 26px;
             box-shadow:
                 24px 24px 0 rgba(255, 255, 255, 0.64),
                 0 30px 60px rgba(0, 0, 0, 0.10);
@@ -324,10 +345,10 @@
         .profile-card h2 {
             position: relative;
             z-index: 2;
-            max-width: 350px;
+            max-width: 360px;
             margin-top: 8px;
             font-family: "Instrument Serif", serif;
-            font-size: clamp(37px, 3vw, 44px);
+            font-size: clamp(39px, 3.15vw, 47px);
             font-weight: 400;
             line-height: 1.02;
         }
@@ -376,8 +397,6 @@
             font-size: 14px;
             line-height: 1.7;
         }
-
-        /* Main statement is now on the right */
 
         .hero-main {
             min-height: 965px;
@@ -599,64 +618,30 @@
             margin: 34px 0;
         }
 
-        .dashboard-mockup {
-            width: min(94%, 650px);
-            padding: 15px;
+        /* Real Power BI dashboard project preview */
+
+        .dashboard-project-preview {
+            width: min(100%, 720px);
+            padding: 12px;
+            overflow: hidden;
             background: var(--paper);
             border: 1px solid var(--line);
-            border-radius: 18px;
+            border-radius: 20px;
             box-shadow: 0 26px 48px rgba(20, 20, 20, 0.12);
-            transform: rotate(-2deg);
+            transform: rotate(-1.2deg);
+            transition: transform 250ms ease;
         }
 
-        .mockup-bar {
-            height: 22px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 0 5px;
+        .project:hover .dashboard-project-preview {
+            transform: rotate(0deg) scale(1.015);
         }
 
-        .mockup-dot {
-            width: 6px;
-            height: 6px;
-            background: var(--taupe);
-            border-radius: 50%;
-        }
-
-        .mockup-content {
-            display: grid;
-            grid-template-columns: 0.62fr 1.38fr;
-            gap: 12px;
-            min-height: 210px;
-        }
-
-        .mockup-sidebar {
-            background: var(--ink);
-            border-radius: 11px;
-        }
-
-        .mockup-chart {
-            position: relative;
-            overflow: hidden;
-            background: #f4f1eb;
-            border-radius: 11px;
-        }
-
-        .mockup-chart::before {
-            content: "";
-            position: absolute;
-            left: 10%;
-            right: 8%;
-            bottom: 24%;
-            height: 2px;
-            background: var(--ink);
-            transform: rotate(-8deg);
-            box-shadow:
-                60px -28px 0 -0.4px var(--rose-gray),
-                120px -6px 0 -0.4px var(--ink),
-                180px -48px 0 -0.4px var(--rose-gray),
-                240px -64px 0 -0.4px var(--ink);
+        .dashboard-project-preview img {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 13px;
         }
 
         .phone-mockup {
@@ -667,6 +652,11 @@
             border-radius: 34px;
             box-shadow: 24px 26px 0 rgba(184, 168, 170, 0.35);
             transform: rotate(5deg);
+            transition: transform 250ms ease;
+        }
+
+        .project:hover .phone-mockup {
+            transform: rotate(2deg) translateY(-5px);
         }
 
         .phone-screen {
@@ -753,7 +743,7 @@
         }
 
         .project-description {
-            max-width: 520px;
+            max-width: 540px;
             color: var(--soft-ink);
             font-size: 14px;
             line-height: 1.75;
@@ -768,6 +758,311 @@
             border-bottom: 1px solid var(--ink);
             font-size: 12px;
             font-weight: 700;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        .project-tag {
+            padding: 7px 11px;
+            background: rgba(255, 255, 255, 0.55);
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            color: var(--soft-ink);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+                /* =========================
+           NATURAL GAS CASE STUDY
+        ========================= */
+
+        .analytics-case-study {
+            background: var(--paper);
+            color: var(--ink);
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .analytics-case-heading {
+            display: grid;
+            grid-template-columns: 0.38fr 1.62fr;
+            gap: 44px;
+            margin-bottom: 60px;
+        }
+
+        .analytics-case-heading h2 {
+            max-width: 1050px;
+            font-family: "Instrument Serif", serif;
+            font-size: clamp(58px, 7vw, 104px);
+            font-weight: 400;
+            line-height: 0.92;
+            letter-spacing: -0.035em;
+        }
+
+        .analytics-case-heading h2 em {
+            color: var(--rose-gray);
+            font-weight: 400;
+        }
+
+        .analytics-case-intro {
+            max-width: 850px;
+            margin-top: 24px;
+            color: var(--soft-ink);
+            font-size: 17px;
+            line-height: 1.85;
+        }
+
+        .analytics-dashboard-frame {
+            overflow: hidden;
+            margin-bottom: 70px;
+            padding: 18px;
+            background: var(--stone);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-large);
+            box-shadow: var(--shadow);
+        }
+
+        .analytics-dashboard-frame img {
+            width: 100%;
+            border-radius: 18px;
+        }
+
+        .analytics-overview-grid {
+            display: grid;
+            grid-template-columns: 0.82fr 1.18fr;
+            gap: 70px;
+            margin-bottom: 80px;
+        }
+
+        .analytics-summary {
+            position: sticky;
+            top: 125px;
+            align-self: start;
+        }
+
+        .analytics-summary h3 {
+            margin-bottom: 24px;
+            font-family: "Instrument Serif", serif;
+            font-size: clamp(44px, 4.5vw, 68px);
+            font-weight: 400;
+            line-height: 0.97;
+        }
+
+        .analytics-summary p {
+            max-width: 580px;
+            color: var(--soft-ink);
+            font-size: 16px;
+            line-height: 1.85;
+        }
+
+        .analytics-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        .analytics-detail-card {
+            min-height: 165px;
+            padding: 25px;
+            background: var(--cream);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+        }
+
+        .analytics-detail-card span {
+            display: block;
+            margin-bottom: 18px;
+            color: var(--soft-ink);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .analytics-detail-card strong {
+            display: block;
+            font-family: "Instrument Serif", serif;
+            font-size: 29px;
+            font-weight: 400;
+            line-height: 1.08;
+        }
+
+        .analytics-section {
+            padding: 72px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .analytics-section-heading {
+            display: grid;
+            grid-template-columns: 0.38fr 1.62fr;
+            gap: 44px;
+            margin-bottom: 42px;
+        }
+
+        .analytics-section-number {
+            color: var(--soft-ink);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .analytics-section-title h3 {
+            max-width: 870px;
+            margin-bottom: 18px;
+            font-family: "Instrument Serif", serif;
+            font-size: clamp(45px, 5vw, 75px);
+            font-weight: 400;
+            line-height: 0.95;
+        }
+
+        .analytics-section-title p {
+            max-width: 790px;
+            color: var(--soft-ink);
+            font-size: 16px;
+            line-height: 1.85;
+        }
+
+        .analytics-process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+        }
+
+        .analytics-process-card {
+            min-height: 230px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 25px;
+            background: var(--cream);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            transition:
+                transform 220ms ease,
+                background 220ms ease;
+        }
+
+        .analytics-process-card:hover {
+            transform: translateY(-6px);
+            background: var(--stone);
+        }
+
+        .analytics-process-card span {
+            color: var(--soft-ink);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+        }
+
+        .analytics-process-card h4 {
+            font-family: "Instrument Serif", serif;
+            font-size: 34px;
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .analytics-process-card p {
+            color: var(--soft-ink);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .metric-card {
+            min-height: 210px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 26px;
+            background: var(--ink);
+            color: var(--paper);
+            border-radius: 19px;
+        }
+
+        .metric-card span {
+            color: #bdb8b0;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .metric-card strong {
+            font-family: "Instrument Serif", serif;
+            font-size: 62px;
+            font-weight: 400;
+            line-height: 0.9;
+        }
+
+        .metric-card p {
+            color: #c8c4bd;
+            font-size: 13px;
+            line-height: 1.65;
+        }
+
+        .analytics-insight-panel {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 48px;
+            padding: clamp(35px, 5vw, 70px);
+            background: var(--sage-gray);
+            border-radius: var(--radius-large);
+        }
+
+        .analytics-insight-panel h3 {
+            font-family: "Instrument Serif", serif;
+            font-size: clamp(42px, 5vw, 74px);
+            font-weight: 400;
+            line-height: 0.96;
+        }
+
+        .analytics-insight-list {
+            display: grid;
+            gap: 16px;
+        }
+
+        .analytics-insight-item {
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(23, 23, 23, 0.16);
+        }
+
+        .analytics-insight-item:first-child {
+            padding-top: 0;
+        }
+
+        .analytics-insight-item:last-child {
+            border-bottom: 0;
+        }
+
+        .analytics-insight-item strong {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .analytics-insight-item p {
+            color: var(--soft-ink);
+            font-size: 14px;
+            line-height: 1.75;
+        }
+
+        .analytics-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 32px;
         }
 
         /* =========================
@@ -965,32 +1260,142 @@
             border-radius: 14px;
         }
 
+        /* Cleaner compact code gallery */
+
         .code-gallery {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
         }
 
         .code-image-card {
-            padding: 18px;
+            min-width: 0;
+            padding: 16px;
             background: #242424;
             border: 1px solid rgba(255, 255, 255, 0.13);
-            border-radius: 22px;
+            border-radius: 20px;
+            transition:
+                transform 220ms ease,
+                border-color 220ms ease;
+        }
+
+        .code-image-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.28);
         }
 
         .code-image-card span {
             display: block;
-            margin-bottom: 14px;
+            margin-bottom: 13px;
             color: #bdb9b2;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 700;
             letter-spacing: 0.14em;
             text-transform: uppercase;
         }
 
-        .code-image-card img {
+        .code-preview-button {
             width: 100%;
-            border-radius: 14px;
+            display: block;
+            overflow: hidden;
+            padding: 0;
+            background: #151515;
+            border: 0;
+            border-radius: 13px;
+            cursor: zoom-in;
+        }
+
+        .code-preview-button img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            object-position: top left;
+            border-radius: 13px;
+            transition: transform 250ms ease;
+        }
+
+        .code-preview-button:hover img {
+            transform: scale(1.025);
+        }
+
+        .code-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-top: 13px;
+            color: #a9a59e;
+            font-size: 11px;
+        }
+
+        .code-card-footer strong {
+            color: var(--paper);
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .code-card-footer span {
+            display: inline;
+            margin: 0;
+            color: #a9a59e;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0;
+            text-transform: none;
+        }
+
+        /* Code image modal */
+
+        .image-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 3000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: rgba(8, 8, 8, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .image-modal.is-open {
+            display: flex;
+        }
+
+        .image-modal-dialog {
+            position: relative;
+            width: min(1180px, 100%);
+            max-height: calc(100vh - 48px);
+            overflow: auto;
+            padding: 16px;
+            background: #202020;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 22px;
+            box-shadow: 0 32px 90px rgba(0, 0, 0, 0.5);
+        }
+
+        .image-modal-dialog img {
+            width: 100%;
+            border-radius: 13px;
+        }
+
+        .image-modal-close {
+            position: sticky;
+            top: 0;
+            z-index: 5;
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            margin-left: auto;
+            margin-bottom: 12px;
+            background: var(--paper);
+            color: var(--ink);
+            border: 0;
+            border-radius: 50%;
+            font-size: 22px;
+            cursor: pointer;
         }
 
         .case-takeaway {
@@ -1306,6 +1711,23 @@
         }
 
         /* =========================
+           SUBTLE REVEAL ANIMATIONS
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(26px);
+            transition:
+                opacity 650ms ease,
+                transform 650ms ease;
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
            RESPONSIVE
         ========================= */
 
@@ -1330,21 +1752,22 @@
                 min-height: 580px;
             }
 
-            .status-card {
-                min-height: 580px;
-            }
-
             .hero-description-row,
             .section-heading,
             .about-grid,
             .experience-card,
             .case-study-heading,
             .case-overview-grid,
-            .case-section-heading {
+            .case-section-heading,
+            .analytics-case-heading,
+            .analytics-overview-grid,
+            .analytics-section-heading,
+            .analytics-insight-panel {
                 grid-template-columns: 1fr;
             }
 
-            .case-summary {
+            .case-summary,
+            .analytics-summary {
                 position: static;
             }
 
@@ -1358,8 +1781,13 @@
                 min-height: 560px;
             }
 
-            .feature-grid {
+            .feature-grid,
+            .analytics-process-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .metric-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
 
             .capability {
@@ -1368,6 +1796,20 @@
 
             .capability p {
                 grid-column: 2;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .code-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .code-preview-button img {
+                height: 360px;
+            }
+
+            .metric-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1502,6 +1944,12 @@
                 flex-direction: column;
             }
 
+            .dashboard-project-preview {
+                width: 100%;
+                padding: 8px;
+                transform: none;
+            }
+
             .workflow-visual {
                 grid-template-columns: 1fr;
             }
@@ -1516,12 +1964,19 @@
 
             .feature-grid,
             .case-details,
+            .analytics-details,
+            .analytics-process-grid,
             .about-facts {
                 grid-template-columns: 1fr;
             }
 
+            .analytics-dashboard-frame,
             .case-study-cover {
                 padding: 10px;
+            }
+
+            .code-preview-button img {
+                height: 285px;
             }
 
             .about-editorial {
@@ -1555,6 +2010,16 @@
             .footer {
                 flex-direction: column;
             }
+
+            .image-modal {
+                padding: 10px;
+            }
+
+            .image-modal-dialog {
+                max-height: calc(100vh - 20px);
+                padding: 10px;
+                border-radius: 16px;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -1566,6 +2031,11 @@
                 animation: none;
             }
 
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+
             * {
                 transition: none !important;
             }
@@ -1575,7 +2045,35 @@
 
 <body>
 
-    <!-- =========================
+    <!-- Full-screen code image viewer -->
+
+    <div
+        class="image-modal"
+        id="image-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Expanded project code image"
+    >
+        <div class="image-modal-dialog">
+
+            <button
+                class="image-modal-close"
+                id="image-modal-close"
+                type="button"
+                aria-label="Close expanded image"
+            >
+                ×
+            </button>
+
+            <img
+                id="image-modal-content"
+                src=""
+                alt=""
+            >
+
+        </div>
+    </div>
+        <!-- =========================
          NAVIGATION
     ========================== -->
 
@@ -1642,11 +2140,9 @@
         <section class="hero">
             <div class="container hero-grid">
 
-                <!-- Profile on the LEFT -->
-
                 <aside class="hero-side">
 
-                    <article class="editorial-card profile-card">
+                    <article class="editorial-card profile-card reveal">
 
                         <div class="card-number">
                             PROFILE / 01
@@ -1668,12 +2164,15 @@
 
                         <h2>
                             Hi, I’m Amber.
-                            <span> I connect business needs with thoughtful technology solutions.</span>
+                            <span>
+                                I connect business needs with thoughtful
+                                technology solutions.
+                            </span>
                         </h2>
 
                     </article>
 
-                    <article class="editorial-card status-card">
+                    <article class="editorial-card status-card reveal">
 
                         <div class="availability">
 
@@ -1697,9 +2196,7 @@
 
                 </aside>
 
-                <!-- Main statement on the RIGHT -->
-
-                <div class="hero-main">
+                <div class="hero-main reveal">
 
                     <div class="hero-topline">
 
@@ -1836,7 +2333,7 @@
         >
             <div class="container">
 
-                <div class="section-heading">
+                <div class="section-heading reveal">
 
                     <p class="section-kicker">
                         Selected work
@@ -1853,7 +2350,7 @@
 
                     <!-- Natural Gas Project -->
 
-                    <article class="project project-large">
+                    <article class="project project-large reveal">
 
                         <div class="project-meta">
 
@@ -1869,25 +2366,16 @@
 
                         <div class="project-visual">
 
-                            <div class="dashboard-mockup">
-
-                                <div class="mockup-bar">
-
-                                    <span class="mockup-dot"></span>
-                                    <span class="mockup-dot"></span>
-                                    <span class="mockup-dot"></span>
-
-                                </div>
-
-                                <div class="mockup-content">
-
-                                    <div class="mockup-sidebar"></div>
-
-                                    <div class="mockup-chart"></div>
-
-                                </div>
-
-                            </div>
+                            <a
+                                class="dashboard-project-preview"
+                                href="#natural-gas-case-study"
+                                aria-label="View Natural Gas Market Intelligence case study"
+                            >
+                                <img
+                                    src="henry-hub-dashboard.png"
+                                    alt="Henry Hub Natural Gas Spot Price dashboard created in Power BI"
+                                >
+                            </a>
 
                         </div>
 
@@ -1899,17 +2387,47 @@
 
                             <div class="project-bottom">
 
-                                <p class="project-description">
-                                    A developing analytics experience designed
-                                    to bring pricing, storage, supply, demand,
-                                    pipeline activity, and operational metrics
-                                    into one clear decision-support dashboard.
-                                </p>
+                                <div>
 
-                                <span class="project-link">
-                                    In development
-                                    <span>↗</span>
-                                </span>
+                                    <p class="project-description">
+                                        An interactive Power BI dashboard
+                                        analyzing nearly three decades of Henry
+                                        Hub natural gas spot prices. The project
+                                        highlights historical trends, price
+                                        volatility, and key market metrics
+                                        through KPI cards and time-series
+                                        visualization.
+                                    </p>
+
+                                    <div class="project-tags">
+
+                                        <span class="project-tag">
+                                            Power BI
+                                        </span>
+
+                                        <span class="project-tag">
+                                            Power Query
+                                        </span>
+
+                                        <span class="project-tag">
+                                            Energy Analytics
+                                        </span>
+
+                                        <span class="project-tag">
+                                            Data Visualization
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                                <a
+                                    class="project-link"
+                                    href="#natural-gas-case-study"
+                                >
+                                    View case study
+                                    <span>↘</span>
+                                </a>
 
                             </div>
 
@@ -1919,7 +2437,7 @@
 
                     <!-- Clean Slate Project -->
 
-                    <article class="project project-small">
+                    <article class="project project-small reveal">
 
                         <div class="project-meta">
 
@@ -1988,7 +2506,7 @@
 
                     <!-- AI Workflow Project -->
 
-                    <article class="project project-full">
+                    <article class="project project-full reveal">
 
                         <div class="project-meta">
 
@@ -2078,6 +2596,425 @@
         </section>
 
         <!-- =========================
+             NATURAL GAS CASE STUDY
+        ========================== -->
+
+        <section
+            class="section analytics-case-study"
+            id="natural-gas-case-study"
+        >
+            <div class="container">
+
+                <div class="analytics-case-heading reveal">
+
+                    <p class="section-kicker">
+                        Featured analytics project
+                    </p>
+
+                    <div>
+
+                        <h2>
+                            Natural Gas Market
+                            <em>Intelligence.</em>
+                        </h2>
+
+                        <p class="analytics-case-intro">
+                            A business-intelligence project that transforms
+                            nearly three decades of Henry Hub natural gas spot
+                            price data into a clear, readable market overview.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="analytics-dashboard-frame reveal">
+
+                    <img
+                        src="henry-hub-dashboard.png"
+                        alt="Henry Hub Natural Gas Spot Price Trend Power BI dashboard"
+                    >
+
+                </div>
+
+                <div class="analytics-overview-grid">
+
+                    <div class="analytics-summary reveal">
+
+                        <h3>
+                            Turning historical energy data into accessible
+                            market insight.
+                        </h3>
+
+                        <p>
+                            I designed this Power BI dashboard using monthly
+                            Henry Hub Natural Gas Spot Price data from the U.S.
+                            Energy Information Administration. The goal was to
+                            create a focused executive-style report that makes
+                            long-term pricing behavior, volatility, and major
+                            historical movements easier to understand.
+                        </p>
+
+                        <div class="analytics-actions">
+
+                            <a
+                                class="button button-dark"
+                                href="Henry_Hub_Price_Dashboard.pbix"
+                                download
+                            >
+                                Download Power BI file
+                                <span>↓</span>
+                            </a>
+
+                            <a
+                                class="button button-light"
+                                href="henry-hub-dashboard.png"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                View dashboard image
+                                <span>↗</span>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="analytics-details">
+
+                        <div class="analytics-detail-card reveal">
+
+                            <span>
+                                My role
+                            </span>
+
+                            <strong>
+                                Data Analyst and Dashboard Designer
+                            </strong>
+
+                        </div>
+
+                        <div class="analytics-detail-card reveal">
+
+                            <span>
+                                Tools
+                            </span>
+
+                            <strong>
+                                Power BI, Power Query and Excel
+                            </strong>
+
+                        </div>
+
+                        <div class="analytics-detail-card reveal">
+
+                            <span>
+                                Data source
+                            </span>
+
+                            <strong>
+                                U.S. Energy Information Administration
+                            </strong>
+
+                        </div>
+
+                        <div class="analytics-detail-card reveal">
+
+                            <span>
+                                Business focus
+                            </span>
+
+                            <strong>
+                                Pricing Trends and Market Intelligence
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Analytics Challenge -->
+
+                <div class="analytics-section">
+
+                    <div class="analytics-section-heading reveal">
+
+                        <span class="analytics-section-number">
+                            01 · Business question
+                        </span>
+
+                        <div class="analytics-section-title">
+
+                            <h3>
+                                How has the Henry Hub spot price changed over
+                                time?
+                            </h3>
+
+                            <p>
+                                Historical pricing files contain valuable market
+                                information, but raw tables can make it difficult
+                                to quickly identify long-term patterns. This
+                                dashboard was created to provide an immediate
+                                view of price movement, historical highs and
+                                lows, and overall average market behavior.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Analytics Process -->
+
+                <div class="analytics-section">
+
+                    <div class="analytics-section-heading reveal">
+
+                        <span class="analytics-section-number">
+                            02 · Analytics process
+                        </span>
+
+                        <div class="analytics-section-title">
+
+                            <h3>
+                                From public data to business insight.
+                            </h3>
+
+                            <p>
+                                I followed a practical analytics workflow to
+                                collect, clean, organize, and visualize the
+                                monthly pricing information.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="analytics-process-grid">
+
+                        <article class="analytics-process-card reveal">
+
+                            <span>
+                                01
+                            </span>
+
+                            <h4>
+                                Collect
+                            </h4>
+
+                            <p>
+                                Downloaded monthly Henry Hub natural gas spot
+                                price data published by the EIA.
+                            </p>
+
+                        </article>
+
+                        <article class="analytics-process-card reveal">
+
+                            <span>
+                                02
+                            </span>
+
+                            <h4>
+                                Transform
+                            </h4>
+
+                            <p>
+                                Used Power Query to remove unnecessary rows,
+                                rename fields, and organize the source data.
+                            </p>
+
+                        </article>
+
+                        <article class="analytics-process-card reveal">
+
+                            <span>
+                                03
+                            </span>
+
+                            <h4>
+                                Validate
+                            </h4>
+
+                            <p>
+                                Converted the date and pricing columns into
+                                usable data types and reviewed the final dataset
+                                for consistency.
+                            </p>
+
+                        </article>
+
+                        <article class="analytics-process-card reveal">
+
+                            <span>
+                                04
+                            </span>
+
+                            <h4>
+                                Visualize
+                            </h4>
+
+                            <p>
+                                Built KPI cards and a time-series chart to
+                                communicate the most important market
+                                information.
+                            </p>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+                <!-- Metrics -->
+
+                <div class="analytics-section">
+
+                    <div class="analytics-section-heading reveal">
+
+                        <span class="analytics-section-number">
+                            03 · Dashboard metrics
+                        </span>
+
+                        <div class="analytics-section-title">
+
+                            <h3>
+                                Key figures presented at a glance.
+                            </h3>
+
+                            <p>
+                                The dashboard uses summary cards to make the
+                                highest, lowest, and average monthly prices
+                                immediately visible before the user explores the
+                                full historical trend.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="metric-grid">
+
+                        <article class="metric-card reveal">
+
+                            <span>
+                                Highest monthly price
+                            </span>
+
+                            <strong>
+                                $13.42
+                            </strong>
+
+                            <p>
+                                The highest monthly Henry Hub spot price shown in
+                                the dataset.
+                            </p>
+
+                        </article>
+
+                        <article class="metric-card reveal">
+
+                            <span>
+                                Lowest monthly price
+                            </span>
+
+                            <strong>
+                                $1.49
+                            </strong>
+
+                            <p>
+                                The lowest monthly Henry Hub spot price shown in
+                                the dataset.
+                            </p>
+
+                        </article>
+
+                        <article class="metric-card reveal">
+
+                            <span>
+                                Historical average
+                            </span>
+
+                            <strong>
+                                $4.10
+                            </strong>
+
+                            <p>
+                                The average monthly Henry Hub spot price across
+                                the full reporting period.
+                            </p>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+                <!-- Insights -->
+
+                <div class="analytics-section">
+
+                    <div class="analytics-insight-panel reveal">
+
+                        <h3>
+                            What the trend makes visible.
+                        </h3>
+
+                        <div class="analytics-insight-list">
+
+                            <div class="analytics-insight-item">
+
+                                <strong>
+                                    Periods of major volatility
+                                </strong>
+
+                                <p>
+                                    The visual makes the sharp price movements
+                                    during the 2000s and early 2020s immediately
+                                    recognizable.
+                                </p>
+
+                            </div>
+
+                            <div class="analytics-insight-item">
+
+                                <strong>
+                                    Long periods of lower pricing
+                                </strong>
+
+                                <p>
+                                    The chart also reveals extended periods when
+                                    monthly prices remained closer to the lower
+                                    end of the historical range.
+                                </p>
+
+                            </div>
+
+                            <div class="analytics-insight-item">
+
+                                <strong>
+                                    Clearer executive communication
+                                </strong>
+
+                                <p>
+                                    KPI cards provide immediate context while the
+                                    line chart preserves the full historical
+                                    story.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+                <!-- =========================
              CLEAN SLATE CASE STUDY
         ========================== -->
 
@@ -2087,10 +3024,10 @@
         >
             <div class="container">
 
-                <div class="case-study-heading">
+                <div class="case-study-heading reveal">
 
                     <p class="section-kicker">
-                        Featured case study
+                        Featured Python project
                     </p>
 
                     <h2>
@@ -2100,21 +3037,22 @@
 
                 </div>
 
-                <div class="case-study-cover">
+                <div class="case-study-cover reveal">
 
                     <img
                         src="clean-slate-cover.png"
-                        alt="Clean Slate Juice Ordering System project cover"
+                        alt="Clean Slate Juice Ordering System project overview"
                     >
 
                 </div>
 
                 <div class="case-overview-grid">
 
-                    <div class="case-summary">
+                    <div class="case-summary reveal">
 
                         <h3>
-                            Turning a real business idea into working Python logic.
+                            Turning a real business idea into working Python
+                            logic.
                         </h3>
 
                         <p>
@@ -2130,7 +3068,7 @@
 
                     <div class="case-details">
 
-                        <div class="case-detail-card">
+                        <div class="case-detail-card reveal">
 
                             <span>
                                 My role
@@ -2142,7 +3080,7 @@
 
                         </div>
 
-                        <div class="case-detail-card">
+                        <div class="case-detail-card reveal">
 
                             <span>
                                 Technologies
@@ -2154,7 +3092,7 @@
 
                         </div>
 
-                        <div class="case-detail-card">
+                        <div class="case-detail-card reveal">
 
                             <span>
                                 Project type
@@ -2166,7 +3104,7 @@
 
                         </div>
 
-                        <div class="case-detail-card">
+                        <div class="case-detail-card reveal">
 
                             <span>
                                 Business focus
@@ -2186,7 +3124,7 @@
 
                 <div class="case-section">
 
-                    <div class="case-section-heading">
+                    <div class="case-section-heading reveal">
 
                         <span class="case-section-number">
                             01 · Challenge
@@ -2216,7 +3154,7 @@
 
                 <div class="case-section">
 
-                    <div class="case-section-heading">
+                    <div class="case-section-heading reveal">
 
                         <span class="case-section-number">
                             02 · Solution
@@ -2225,7 +3163,8 @@
                         <div class="case-section-title">
 
                             <h3>
-                                Business rules transformed into application features.
+                                Business rules transformed into application
+                                features.
                             </h3>
 
                             <p>
@@ -2241,7 +3180,7 @@
 
                     <div class="feature-grid">
 
-                        <article class="feature-card">
+                        <article class="feature-card reveal">
 
                             <span>
                                 01
@@ -2258,7 +3197,7 @@
 
                         </article>
 
-                        <article class="feature-card">
+                        <article class="feature-card reveal">
 
                             <span>
                                 02
@@ -2275,7 +3214,7 @@
 
                         </article>
 
-                        <article class="feature-card">
+                        <article class="feature-card reveal">
 
                             <span>
                                 03
@@ -2292,7 +3231,7 @@
 
                         </article>
 
-                        <article class="feature-card">
+                        <article class="feature-card reveal">
 
                             <span>
                                 04
@@ -2309,7 +3248,7 @@
 
                         </article>
 
-                        <article class="feature-card">
+                        <article class="feature-card reveal">
 
                             <span>
                                 05
@@ -2326,7 +3265,7 @@
 
                         </article>
 
-                        <article class="feature-card">
+                        <article class="feature-card reveal">
 
                             <span>
                                 06
@@ -2343,7 +3282,7 @@
 
                         </article>
 
-                        <article class="feature-card">
+                        <article class="feature-card reveal">
 
                             <span>
                                 07
@@ -2360,7 +3299,7 @@
 
                         </article>
 
-                        <article class="feature-card">
+                        <article class="feature-card reveal">
 
                             <span>
                                 08
@@ -2381,11 +3320,11 @@
 
                 </div>
 
-                <!-- Output -->
+                <!-- Program Output -->
 
                 <div class="case-section">
 
-                    <div class="case-section-heading">
+                    <div class="case-section-heading reveal">
 
                         <span class="case-section-number">
                             03 · Program output
@@ -2398,9 +3337,9 @@
                             </h3>
 
                             <p>
-                                This demonstration shows the customer selecting
-                                Green Slate, entering a quantity, receiving a
-                                wellness message, applying a first-time buyer
+                                This demonstration shows a customer selecting a
+                                product, entering a quantity, receiving a
+                                wellness message, applying a first-order
                                 discount, returning a bottle, and receiving a
                                 final itemized total.
                             </p>
@@ -2409,7 +3348,7 @@
 
                     </div>
 
-                    <div class="case-image-frame">
+                    <div class="case-image-frame reveal">
 
                         <img
                             src="clean-slate-output.png"
@@ -2420,11 +3359,11 @@
 
                 </div>
 
-                <!-- Code -->
+                <!-- Development -->
 
                 <div class="case-section">
 
-                    <div class="case-section-heading">
+                    <div class="case-section-heading reveal">
 
                         <span class="case-section-number">
                             04 · Development
@@ -2441,6 +3380,8 @@
                                 conditional statements, lists, calculations,
                                 and exception handling to organize the ordering
                                 process and protect against invalid input.
+                                Select any preview below to view the code at full
+                                size.
                             </p>
 
                         </div>
@@ -2449,42 +3390,102 @@
 
                     <div class="code-gallery">
 
-                        <article class="code-image-card">
+                        <article class="code-image-card reveal">
 
                             <span>
                                 Python code · Part 1
                             </span>
 
-                            <img
-                                src="clean-slate-code-1.png"
-                                alt="Clean Slate ordering system Python code part one"
+                            <button
+                                class="code-preview-button"
+                                type="button"
+                                data-full-image="clean-slate-code-1.png"
+                                data-image-alt="Clean Slate ordering system Python code part one"
+                                aria-label="Open Python code part one"
                             >
+                                <img
+                                    src="clean-slate-code-1.png"
+                                    alt="Preview of Clean Slate Python code part one"
+                                >
+                            </button>
+
+                            <div class="code-card-footer">
+
+                                <strong>
+                                    Menu and setup
+                                </strong>
+
+                                <span>
+                                    Click to enlarge
+                                </span>
+
+                            </div>
 
                         </article>
 
-                        <article class="code-image-card">
+                        <article class="code-image-card reveal">
 
                             <span>
                                 Python code · Part 2
                             </span>
 
-                            <img
-                                src="clean-slate-code-2.png"
-                                alt="Clean Slate ordering system Python code part two"
+                            <button
+                                class="code-preview-button"
+                                type="button"
+                                data-full-image="clean-slate-code-2.png"
+                                data-image-alt="Clean Slate ordering system Python code part two"
+                                aria-label="Open Python code part two"
                             >
+                                <img
+                                    src="clean-slate-code-2.png"
+                                    alt="Preview of Clean Slate Python code part two"
+                                >
+                            </button>
+
+                            <div class="code-card-footer">
+
+                                <strong>
+                                    Ordering logic
+                                </strong>
+
+                                <span>
+                                    Click to enlarge
+                                </span>
+
+                            </div>
 
                         </article>
 
-                        <article class="code-image-card">
+                        <article class="code-image-card reveal">
 
                             <span>
                                 Python code · Part 3
                             </span>
 
-                            <img
-                                src="clean-slate-code-3.png"
-                                alt="Clean Slate ordering system Python code part three"
+                            <button
+                                class="code-preview-button"
+                                type="button"
+                                data-full-image="clean-slate-code-3.png"
+                                data-image-alt="Clean Slate ordering system Python code part three"
+                                aria-label="Open Python code part three"
                             >
+                                <img
+                                    src="clean-slate-code-3.png"
+                                    alt="Preview of Clean Slate Python code part three"
+                                >
+                            </button>
+
+                            <div class="code-card-footer">
+
+                                <strong>
+                                    Summary and checkout
+                                </strong>
+
+                                <span>
+                                    Click to enlarge
+                                </span>
+
+                            </div>
 
                         </article>
 
@@ -2496,11 +3497,14 @@
 
                 <div class="case-section">
 
-                    <div class="case-takeaway">
+                    <div class="case-takeaway reveal">
 
                         <p>
                             This project strengthened my understanding of how
-                            <em>business rules, customer experience and programming</em>
+                            <em>
+                                business rules, customer experience and
+                                programming
+                            </em>
                             work together inside one practical solution.
                         </p>
 
@@ -2521,7 +3525,7 @@
         >
             <div class="container about-grid">
 
-                <article class="about-editorial">
+                <article class="about-editorial reveal">
 
                     <small>
                         My approach
@@ -2538,7 +3542,7 @@
 
                 </article>
 
-                <div class="about-copy">
+                <div class="about-copy reveal">
 
                     <p class="section-kicker">
                         About me
@@ -2638,7 +3642,7 @@
         >
             <div class="container">
 
-                <div class="section-heading">
+                <div class="section-heading reveal">
 
                     <p class="section-kicker">
                         Capabilities
@@ -2653,7 +3657,7 @@
 
                 <div class="capabilities-grid">
 
-                    <article class="capability">
+                    <article class="capability reveal">
 
                         <span class="capability-number">
                             01
@@ -2672,7 +3676,7 @@
 
                     </article>
 
-                    <article class="capability">
+                    <article class="capability reveal">
 
                         <span class="capability-number">
                             02
@@ -2683,15 +3687,15 @@
                         </h3>
 
                         <p>
-                            Python, SQL, Excel, Power BI, dashboard concepts,
-                            data visualization, trend analysis, data validation,
-                            and transforming information into useful business
-                            insights.
+                            Python, SQL, Excel, Power BI, Power Query, dashboard
+                            design, data visualization, trend analysis, data
+                            validation, and transforming information into useful
+                            business insight.
                         </p>
 
                     </article>
 
-                    <article class="capability">
+                    <article class="capability reveal">
 
                         <span class="capability-number">
                             03
@@ -2704,12 +3708,13 @@
                         <p>
                             AI-assisted workflows, repetitive-task reduction,
                             information organization, decision support, process
-                            optimization, and practical automation opportunities.
+                            optimization, and practical automation
+                            opportunities.
                         </p>
 
                     </article>
 
-                    <article class="capability">
+                    <article class="capability reveal">
 
                         <span class="capability-number">
                             04
@@ -2728,7 +3733,7 @@
 
                     </article>
 
-                    <article class="capability">
+                    <article class="capability reveal">
 
                         <span class="capability-number">
                             05
@@ -2762,7 +3767,7 @@
         >
             <div class="container">
 
-                <div class="experience-card">
+                <div class="experience-card reveal">
 
                     <div>
 
@@ -2812,8 +3817,8 @@
                             <p>
                                 Building technical foundations in Python,
                                 programming, data structures, systems analysis,
-                                information technology, problem solving, and
-                                software development.
+                                information technology, problem solving,
+                                software development, and business intelligence.
                             </p>
 
                         </article>
@@ -2882,7 +3887,7 @@
                     Let’s connect
                 </p>
 
-                <h2>
+                <h2 class="reveal">
                     Let’s build something
                     <em>useful.</em>
                 </h2>
@@ -2946,6 +3951,101 @@
         </section>
 
     </main>
+
+    <script>
+        /*
+         * Reveal page elements as they enter the viewport.
+         * If IntersectionObserver is unavailable, everything remains visible.
+         */
+
+        const revealElements = document.querySelectorAll(".reveal");
+
+        if ("IntersectionObserver" in window) {
+            const revealObserver = new IntersectionObserver(
+                (entries, observer) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("is-visible");
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+            revealElements.forEach((element) => {
+                revealObserver.observe(element);
+            });
+        } else {
+            revealElements.forEach((element) => {
+                element.classList.add("is-visible");
+            });
+        }
+
+        /*
+         * Expand Clean Slate code screenshots in a readable modal.
+         */
+
+        const modal = document.getElementById("image-modal");
+        const modalImage = document.getElementById("image-modal-content");
+        const modalClose = document.getElementById("image-modal-close");
+        const codePreviewButtons =
+            document.querySelectorAll(".code-preview-button");
+
+        let lastFocusedElement = null;
+
+        function openImageModal(imageSource, imageAlt) {
+            lastFocusedElement = document.activeElement;
+
+            modalImage.src = imageSource;
+            modalImage.alt = imageAlt;
+
+            modal.classList.add("is-open");
+            document.body.classList.add("modal-open");
+
+            modalClose.focus();
+        }
+
+        function closeImageModal() {
+            modal.classList.remove("is-open");
+            document.body.classList.remove("modal-open");
+
+            modalImage.src = "";
+            modalImage.alt = "";
+
+            if (lastFocusedElement) {
+                lastFocusedElement.focus();
+            }
+        }
+
+        codePreviewButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                const imageSource = button.dataset.fullImage;
+                const imageAlt = button.dataset.imageAlt;
+
+                openImageModal(imageSource, imageAlt);
+            });
+        });
+
+        modalClose.addEventListener("click", closeImageModal);
+
+        modal.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                closeImageModal();
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (
+                event.key === "Escape" &&
+                modal.classList.contains("is-open")
+            ) {
+                closeImageModal();
+            }
+        });
+    </script>
 
 </body>
 </html>
